@@ -1,0 +1,40 @@
+
+# cancel
+> add some example phrases to trigger this intent:
+> - please tell me the weather
+> - what is the weather like in {city=Seattle}
+
+> entity definitions:
+> @ ml city
+
+- cancel
+- please cancel
+- stop that
+
+# help
+> add some example phrases to trigger this intent:
+> - please tell me the weather
+> - what is the weather like in {city=Seattle}
+
+> entity definitions:
+> @ ml city
+
+- help
+- I need help
+- please help me
+- can you help
+
+# weather
+> add some example phrases to trigger this intent:
+> - please tell me the weather
+> - what is the weather like in {city=Seattle}
+
+> entity definitions:
+> @ ml city
+
+- get weather
+- weather
+- how is the weather
+
+> Define a postal code entity. Any time LUIS sees a five digit number, it will flag it as 'postal code' entity.
+$ postalcode:/[0-9]{5}/

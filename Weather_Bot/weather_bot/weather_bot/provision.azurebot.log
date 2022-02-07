@@ -1,0 +1,20 @@
+{
+  "profileName": "azurebot",
+  "jobId": "d77f7a8e-97c8-4506-9c4f-5b858d26ebdc",
+  "projectId": "50996.80722078022",
+  "time": "2022-02-07T23:00:27.438Z",
+  "log": [
+    "Creating Azure resources...",
+    "Checking the Existence of the Resource Group ...",
+    "Use the Resource Group: Senior_Project_Chatbot_1 at westus2",
+    "> Creating App Registration ...",
+    "Start to add password for App, Id : c07b0e73-3ad3-4b4a-b988-821072082761",
+    "Add application password failed, retrying ...",
+    "Add application password failed, retrying ...",
+    "Add application password failed, retrying ...",
+    "Add application password failed, retrying ...",
+    "Add application password failed after 3 retries. Error: Request failed with status code 403",
+    "{\"name\":\"CREATE_APP_REGISTRATION\",\"message\":\"Add application password failed! Please file an issue on Github.\",\"stack\":\"Error\\n    at new CustomizeError (C:\\\\Program Files\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\dist\\\\extension.js:276418:25)\\n    at createCustomizeError (C:\\\\Program Files\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\dist\\\\extension.js:276423:10)\\n    at BotProjectProvision.createApp (C:\\\\Program Files\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\dist\\\\extension.js:277967:17)\"}",
+    "{\"name\":\"CREATE_APP_REGISTRATION\",\"message\":\"Add application password failed! Please file an issue on Github.\",\"stack\":\"Error\\n    at new CustomizeError (C:\\\\Program Files\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\dist\\\\extension.js:276418:25)\\n    at createCustomizeError (C:\\\\Program Files\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\dist\\\\extension.js:276423:10)\\n    at BotProjectProvision.createApp (C:\\\\Program Files\\\\Bot Framework Composer\\\\resources\\\\app.asar.unpacked\\\\extensions\\\\azurePublish\\\\dist\\\\extension.js:277967:17)\"}. See provision.azurebot.log in your bot folder"
+  ]
+}

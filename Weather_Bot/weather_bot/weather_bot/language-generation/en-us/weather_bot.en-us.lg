@@ -1,0 +1,14 @@
+[import](common.lg)
+
+# SendActivity_Greeting()
+[Activity
+    Text = Welcome to Weather Bot! Type "weather" to get started.
+]
+
+# SendActivity_DidNotUnderstand()
+[Activity
+    Text = ${SendActivity_DidNotUnderstand_text()}
+]
+
+# SendActivity_DidNotUnderstand_text()
+- Sorry, I didn't get that.

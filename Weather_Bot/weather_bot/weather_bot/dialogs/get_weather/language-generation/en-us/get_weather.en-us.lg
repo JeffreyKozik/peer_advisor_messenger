@@ -1,0 +1,39 @@
+[import](common.lg)
+
+# SendActivity_hgjEk0()
+[Activity
+    Text = Let's check the weather.
+]
+
+# TextInput_Prompt_f8F7oM()
+[Activity
+    Text = What's your postal code?
+]
+
+# TextInput_UnrecognizedPrompt_f8F7oM()
+[Activity
+    Text = Sorry, I do not understand '${this.value}'. Please specify a 5 digit postal code in the format 12345.
+]
+
+# TextInput_InvalidPrompt_f8F7oM()
+[Activity
+    Text = Sorry, '${this.value}' is not valid. I'm looking for a 5 digit number as postal code. Please specify a 5 digit postal code in the format 12345.
+]
+
+# SendActivity_ZRWAQS()
+[Activity
+    Text = The weather is ${dialog.fahrenheit}F or ${dialog.celsius}C and ${dialog.weather}.
+    Attachments = ${json(SendActivity_ZRWAQS_attachment_JhFYIh())}
+]
+
+# SendActivity_1SqcbR()
+[Activity
+    Text = Something went wrong: ${dialog.api_response.content.message}.
+]
+
+# SendActivity_ZRWAQS_attachment_JhFYIh()
+[ThumbnailCard
+   title = Weather in ${dialog.city} in ${dialog.country}
+   text =  It is "${dialog.weather}" in ${user.postalcode} and the temperature is ${dialog.fahrenheit}&deg;F or ${dialog.celsius}&deg;C. Have a nice day.
+   image = http://openweathermap.org/img/wn/${dialog.icon}@2x.png
+]
