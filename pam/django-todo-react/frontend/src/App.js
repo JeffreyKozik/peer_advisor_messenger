@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <main className="container">
-        <iframe className="chatbot" src="https://d1po4mk7emc0m4.cloudfront.net/index.html"></iframe>
+        <iframe className="chatbot" src="https://d24xr7mrjs4q2n.cloudfront.net/index.html"></iframe>
       </main>
     );
   }
