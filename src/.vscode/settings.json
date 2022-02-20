@@ -1,0 +1,6 @@
+{
+    "remote.extensionKind": {
+      "ms-azuretools.vscode-docker": "ui"
+    },
+    "git.ignoreLimitWarning": true,
+}
