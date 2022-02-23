@@ -2,11 +2,27 @@ import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import LexChat from "react-lex-plus";
+
+{/* <main className="container">
+  <iframe className="chatbot" src="https://d24xr7mrjs4q2n.cloudfront.net/index.html"></iframe>
+</main> */}
+
 function App() {
   return (
-    <main className="container">
-        <iframe className="chatbot" src="https://d24xr7mrjs4q2n.cloudfront.net/index.html"></iframe>
-    </main>
+    <LexChat
+      botName="WebUiOrderFlowers"
+      IdentityPoolId="us-east-1:252959472123:userpool/us-east-1_PhLx5g9VC"
+      placeholder="Placeholder text"
+      backgroundColor="#FFFFFF"
+      height={430}
+      region="us-east-1"
+      headerText="Chat with our awesome bot"
+      headerStyle={{ backgroundColor: "#ABD5D9", fontSize: "30px" }}
+      greeting={
+        "Hello, how can I help? You can say things like 'help' to get more info"
+      }
+    />
   );
 }
 
