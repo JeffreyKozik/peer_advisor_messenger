@@ -6,6 +6,8 @@ import LexChat from "react-lex-plus";
 import MyLexChat from './chatbot_component';
 import MediaQuery from "react-responsive";
 
+import MediaQuery from 'react-responsive'
+
 function App() {
   return (
     <main className="container">

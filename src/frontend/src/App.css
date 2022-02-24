@@ -32,9 +32,21 @@
   }
 }
 
-.chatbot{
+/* .chatbot{
   display: block;
   margin: auto;
   width: 100%;
   height: 100vh;
+} */
+
+/* .desktop{
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
 }
+
+.mobile{
+  width:100%;
+  margin-left: 0;
+  margin-right: 0;
+} */
