@@ -12,7 +12,7 @@ function App() {
   return (
     <LexChat
       botName="WebUiOrderFlowers"
-      IdentityPoolId="us-east-1:252959472123:userpool/us-east-1_PhLx5g9VC"
+      IdentityPoolId="us-east-1:708a563d-f972-4cf0-bf91-53f7d1286a5a"
       placeholder="Placeholder text"
       backgroundColor="#FFFFFF"
       height={430}
