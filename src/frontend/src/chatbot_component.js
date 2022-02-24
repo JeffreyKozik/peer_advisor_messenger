@@ -1,3 +1,4 @@
+// https://github.com/AlexWang-16/react-lex-plus/blob/master/src/styles/chatbot.css
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import merge from "lodash/merge";
@@ -12,7 +13,7 @@ class MyLexChat extends React.Component {
       data: "",
       lexUserId: "chatbot" + Date.now(),
       sessionAttributes: this.props.sessionAttributes,
-      visible: "closed",
+      visible: "open",
     };
     this.conversationDivRef = React.createRef();
     this.greetingMsgRef = React.createRef();
@@ -58,12 +59,12 @@ class MyLexChat extends React.Component {
   }
 
   handleClick() {
-    this.setState({
-      visible: this.state.visible == "open" ? "closed" : "open",
-    });
-    if (this.props.debugMode === true) {
-      console.log(this.state);
-    }
+    // this.setState({
+    //   visible: this.state.visible == "open" ? "closed" : "open",
+    // });
+    // if (this.props.debugMode === true) {
+    //   console.log(this.state);
+    // }
   }
 
   pushChat(event) {
@@ -172,15 +173,15 @@ class MyLexChat extends React.Component {
     const inputStyle = {
       padding: "4px",
       fontSize: 24,
-      width: "388px",
-      height: "40px",
+      width: "100%",
+      height: "8vh",
       borderRadius: "1px",
       border: "10px",
     };
 
     const conversationStyle = {
-      width: "400px",
-      height: this.props.height,
+      width: "100%",
+      height: "80vh",
       border: "px solid #ccc",
       backgroundColor: this.props.backgroundColor,
       padding: "4px",
@@ -190,8 +191,8 @@ class MyLexChat extends React.Component {
 
     const defaultHeaderRectStyle = {
       backgroundColor: "#000000",
-      width: "408px",
-      minHeight: "40px",
+      width: "100%",
+      height: "8vh",
       textAlign: "center",
       paddingTop: 12,
       paddingBottom: 12,
@@ -209,7 +210,7 @@ class MyLexChat extends React.Component {
 
     const chatcontainerStyle = {
       backgroundColor: "#FFFFFF",
-      width: 408,
+      width: "100%",
     };
 
     const chatFormStyle = {
@@ -235,10 +236,11 @@ class MyLexChat extends React.Component {
           </span>
 
           {this.state.visible === "open" ? (
-            <span className="chevron top"></span>
-          ) : (
-            <span className="chevron bottom"></span>
-          )}
+            <span className=""></span>
+           ) : (
+            <span className=""></span>
+           )}
+
         </div>
         <div
           id="chatcontainer"
@@ -277,7 +279,6 @@ MyLexChat.propTypes = {
   IdentityPoolId: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   backgroundColor: PropTypes.string,
-  height: PropTypes.number,
   headerText: PropTypes.string,
   headerColor: PropTypes.string,
   headerBackgroundColor: PropTypes.string,
