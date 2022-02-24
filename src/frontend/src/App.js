@@ -17,13 +17,13 @@ function App() {
             placeholder="I want to buy flowers"
             backgroundColor="#FFFFFF"
             region="us-east-1"
-            headerText="chat with pam"
+            headerText="Chat With Pam"
             headerStyle={{ backgroundColor: "#0a304e", fontSize: "25px" }}
             greeting={
-              'Say "I want to buy flowers" to start'
+            'Hello. I am pam, the peer advisor messenger AI chatbot. I can find the right resources and answer some of your questions! How can I help you?'
             }
             width="50%"
-            margin="25%"            
+            margin="25%"
           />
       </MediaQuery>
       <MediaQuery maxWidth={820}>
@@ -33,13 +33,13 @@ function App() {
               placeholder="I want to buy flowers"
               backgroundColor="#FFFFFF"
               region="us-east-1"
-              headerText="chat with pam"
+              headerText="Chat With Pam"
               headerStyle={{ backgroundColor: "#0a304e", fontSize: "25px" }}
               greeting={
-                'Say "I want to buy flowers" to start'
+                 'Hello. I am pam, the peer advisor messenger AI chatbot. I can find the right resources and answer some of your questions! How can I help you?'
               }
               width="100%"
-              margin="0%" 
+              margin="0%"
             />
       </MediaQuery>
     </main>
