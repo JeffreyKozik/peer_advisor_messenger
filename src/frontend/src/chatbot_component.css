@@ -67,7 +67,7 @@ input::placeholder {
     height: 100vw;
   }
   
-  #chatwrapper {
+  /* #chatwrapper {
     bottom: 0;
     font-size: 12px;
     right: 0;
@@ -78,7 +78,7 @@ input::placeholder {
     margin-bottom: 1%;
     margin-left: 25%;
     margin-right: 25%;
-  }
+  } */
 
   /* #chatwrapper {
     bottom: 0;
@@ -112,5 +112,6 @@ input::placeholder {
     width: 15px;
     height: 15px;
   }
+
 
 

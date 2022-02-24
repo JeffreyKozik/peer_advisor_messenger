@@ -218,8 +218,21 @@ class MyLexChat extends React.Component {
       padding: "2px",
     };
 
+    const chatwrapperStyle =  {
+        bottom: 0,
+        fontSize: "12px",
+        right: 0,
+        position: "fixed",
+        width: this.props.width,
+        height: "100vh",
+        paddingBottom: "1px",
+        marginBottom: "1%",
+        marginLeft: this.props.margin,
+        marginRight: this.props.margin,
+      }
+
     return (
-      <div id="chatwrapper">
+      <div id="chatwrapper" style={chatwrapperStyle}>
         <div
           id="chat-header-rect"
           style={headerReactStyle}
@@ -285,6 +298,8 @@ MyLexChat.propTypes = {
   headerFontSize: PropTypes.number,
   sessionAttributes: PropTypes.object,
   debugMode: PropTypes.bool,
+  widthProp: PropTypes.string,
+  marginProp: PropTypes.string
 };
 
 MyLexChat.defaultProps = {

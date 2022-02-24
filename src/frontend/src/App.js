@@ -5,21 +5,43 @@ import './App.css';
 import LexChat from "react-lex-plus";
 import MyLexChat from './chatbot_component';
 
+import MediaQuery from 'react-responsive'
+
 function App() {
   return (
     <main className="container">
-      <MyLexChat
-        botName="WebUiOrderFlowers"
-        IdentityPoolId="us-east-1:708a563d-f972-4cf0-bf91-53f7d1286a5a"
-        placeholder="I want to buy flowers"
-        backgroundColor="#FFFFFF"
-        region="us-east-1"
-        headerText="chat with pam"
-        headerStyle={{ backgroundColor: "#0a304e", fontSize: "25px" }}
-        greeting={
-          'Say "I want to buy flowers" to start'
-        }
-      />
+      <MediaQuery minWidth={821}>
+          <MyLexChat
+            botName="WebUiOrderFlowers"
+            IdentityPoolId="us-east-1:708a563d-f972-4cf0-bf91-53f7d1286a5a"
+            placeholder="I want to buy flowers"
+            backgroundColor="#FFFFFF"
+            region="us-east-1"
+            headerText="chat with pam"
+            headerStyle={{ backgroundColor: "#0a304e", fontSize: "25px" }}
+            greeting={
+              'Say "I want to buy flowers" to start'
+            }
+            width="50%"
+            margin="25%"            
+          />
+      </MediaQuery>
+      <MediaQuery maxWidth={820}>
+            <MyLexChat
+              botName="WebUiOrderFlowers"
+              IdentityPoolId="us-east-1:708a563d-f972-4cf0-bf91-53f7d1286a5a"
+              placeholder="I want to buy flowers"
+              backgroundColor="#FFFFFF"
+              region="us-east-1"
+              headerText="chat with pam"
+              headerStyle={{ backgroundColor: "#0a304e", fontSize: "25px" }}
+              greeting={
+                'Say "I want to buy flowers" to start'
+              }
+              width="100%"
+              margin="0%" 
+            />
+      </MediaQuery>
     </main>
   );
 }
