@@ -11,14 +11,14 @@ import LexChat from "react-lex-plus";
 function App() {
   return (
     <LexChat
-      botName="WebUiOrderFlowers"
+      botName="Peer Advisor Messenger"
       IdentityPoolId="us-east-1:252959472123:userpool/us-east-1_PhLx5g9VC"
-      placeholder="Placeholder text"
+      placeholder="Please Enter Your Message"
       backgroundColor="#FFFFFF"
       height={430}
       region="us-east-1"
-      headerText="Chat with our awesome bot"
-      headerStyle={{ backgroundColor: "#ABD5D9", fontSize: "30px" }}
+      headerText="Chat with pam"
+      headerStyle={{ backgroundColor: "#0a304e", fontSize: "25px" }}
       greeting={
         "Hello, how can I help? You can say things like 'help' to get more info"
       }
