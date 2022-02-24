@@ -4,10 +4,12 @@ import './App.css';
 
 import LexChat from "react-lex-plus";
 import MyLexChat from './chatbot_component';
+import MediaQuery from "react-responsive";
 
 function App() {
   return (
     <main className="container">
+    <MediaQuery minWidth={821}>
       <MyLexChat
         botName="WebUiOrderFlowers"
         IdentityPoolId="us-east-1:708a563d-f972-4cf0-bf91-53f7d1286a5a"
@@ -19,8 +21,26 @@ function App() {
         greeting={
           'Hello. I am pam, the peer advisor messenger AI chatbot. I can find the right resources and answer some of your questions! How can I help you?'
         }
-
+        width = "50%"
+        margin = "25%"
       />
+      </MediaQuery>
+      <MediaQuery maxWidth={820}>
+        <MyLexChat
+          botName="WebUiOrderFlowers"
+          IdentityPoolId="us-east-1:708a563d-f972-4cf0-bf91-53f7d1286a5a"
+          placeholder="I want to buy flowers"
+          backgroundColor="#FFFFFF"
+          region="us-east-1"
+          headerText="Chat With Pam"
+          headerStyle={{ backgroundColor: "#0a304e", fontSize: "25px" }}
+          greeting={
+            'Hello. I am pam, the peer advisor messenger AI chatbot. I can find the right resources and answer some of your questions! How can I help you?'
+          }
+          width = "100%"
+          margin = "0%"
+        />
+        </MediaQuery>
     </main>
   );
 }
