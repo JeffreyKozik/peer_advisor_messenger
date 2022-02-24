@@ -3,26 +3,40 @@ import logo from './logo.svg';
 import './App.css';
 
 import LexChat from "react-lex-plus";
+import MyLexChat from './chatbot_component';
 
-{/* <main className="container">
-  <iframe className="chatbot" src="https://d24xr7mrjs4q2n.cloudfront.net/index.html"></iframe>
-</main> */}
+{/* <LexChat
+        botName="WebUiOrderFlowers"
+        IdentityPoolId="us-east-1:708a563d-f972-4cf0-bf91-53f7d1286a5a"
+        placeholder="I want to buy flowers"
+        backgroundColor="#FFFFFF"
+        height={430}
+        region="us-east-1"
+        headerText="chat with pam"
+        headerStyle={{ backgroundColor: "#0a304e", fontSize: "25px" }}
+        greeting={
+          'Say "I want to buy flowers" to start'
+        }
+        /> */}
 
 function App() {
   return (
-    <LexChat
+    <main className="container">
+      <iframe className="chatbot" src="https://d24xr7mrjs4q2n.cloudfront.net/index.html"></iframe>
+      <MyLexChat
       botName="WebUiOrderFlowers"
       IdentityPoolId="us-east-1:708a563d-f972-4cf0-bf91-53f7d1286a5a"
-      placeholder="Placeholder text"
+      placeholder="I want to buy flowers"
       backgroundColor="#FFFFFF"
       height={430}
       region="us-east-1"
-      headerText="Chat with pam"
+      headerText="chat with pam"
       headerStyle={{ backgroundColor: "#0a304e", fontSize: "25px" }}
       greeting={
-        "Hello, how can I help? You can say things like 'help' to get more info"
+        'Say "I want to buy flowers" to start'
       }
-    />
+      />
+    </main>
   );
 }
 
