@@ -14,7 +14,7 @@ function App() {
       <MyLexChat
         botName="WebUiOrderFlowers"
         IdentityPoolId="us-east-1:708a563d-f972-4cf0-bf91-53f7d1286a5a"
-        placeholder="I want to buy flowers"
+        placeholder="Ask any question about CWRU..."
         backgroundColor="#FFFFFF"
         region="us-east-1"
         headerText="Chat With Pam"
@@ -30,7 +30,7 @@ function App() {
         <MyLexChat
           botName="WebUiOrderFlowers"
           IdentityPoolId="us-east-1:708a563d-f972-4cf0-bf91-53f7d1286a5a"
-          placeholder="I want to buy flowers"
+          placeholder="Ask any question about CWRU..."
           backgroundColor="#FFFFFF"
           region="us-east-1"
           headerText="Chat With Pam"
