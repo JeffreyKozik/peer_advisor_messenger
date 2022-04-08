@@ -149,7 +149,51 @@ class MyLexChat extends React.Component {
     var responsePara = document.createElement("P");
     responsePara.className = "lexResponse";
     if (lexResponse.message) {
-      responsePara.appendChild(document.createTextNode(lexResponse.message));
+      try{
+        let lexResponseMessageJSON = JSON.parse(lexResponse.message);
+        if(lexResponseMessageJSON.type == "random"){
+          let randomResponseArray = lexResponseMessageJSON.message;
+          let randomResponseNumber = Math.floor(Math.random()*randomResponseArray.length);
+          let randomResponse = randomResponseArray[randomResponseNumber];
+          let randomResponseDiv = document.createElement("div");
+          randomResponseDiv.appendChild(document.createTextNode(randomResponse));
+          let randomResponseLink = document.createElement("button");
+          randomResponseLink.innerHTML = "see more";
+          function lessResponse(){
+            randomResponseDiv.innerHTML = "";
+            randomResponseDiv.appendChild(document.createTextNode(randomResponse));
+            randomResponseDiv.appendChild(randomResponseLink)
+          }
+          function fullResponse(){
+            randomResponseDiv.innerHTML = "";
+            let firstBulletPoint = document.createElement('li');
+            firstBulletPoint.innerHTML = randomResponse;
+            randomResponseDiv.appendChild(firstBulletPoint);
+            for(let i = 0; i < randomResponseArray.length; i++){
+              if(i == randomResponseNumber){
+                continue;
+              }
+              let thisBulletPoint = document.createElement('li');
+              thisBulletPoint.innerHTML = randomResponseArray[i];
+              randomResponseDiv.appendChild(thisBulletPoint);
+            }
+            let seeLess = document.createElement("button");
+            seeLess.innerHTML = "see less";
+            seeLess.onclick = lessResponse;
+            randomResponseDiv.appendChild(seeLess)
+          }
+          randomResponseLink.onclick = fullResponse;
+          randomResponseDiv.appendChild(randomResponseLink)
+          responsePara.appendChild(randomResponseDiv);
+        } /*else if(lexResponseMessageJSON.type == "random"){
+          // use lexResponse and lexResponseMessageJSON to form your graphs
+          // or whatever you'd like to be displayed
+           responsePara.appendChild(whatever you want to be in the chatbot's response message)
+        }*/
+        // ADD AN ELSE IF STATEMENT ABOVE
+      } catch (error){
+        responsePara.appendChild(document.createTextNode(lexResponse.message));
+      }
     }
     if (lexResponse.dialogState === "ReadyForFulfillment") {
       responsePara.appendChild(
