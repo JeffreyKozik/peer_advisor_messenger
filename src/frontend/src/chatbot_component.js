@@ -145,6 +145,7 @@ class MyLexChat extends React.Component {
   }
 
   showResponse(lexResponse) {
+    console.log("lexResponse: " + JSON.stringify(lexResponse));
     var conversationDiv = document.getElementById("conversation");
     var responsePara = document.createElement("P");
     responsePara.className = "lexResponse";
@@ -192,7 +193,69 @@ class MyLexChat extends React.Component {
         }*/
         // ADD AN ELSE IF STATEMENT ABOVE
       } catch (error){
-        responsePara.appendChild(document.createTextNode(lexResponse.message));
+        if("responseCard" in lexResponse){
+          let genericAttachments = lexResponse["responseCard"]["genericAttachments"][0];
+          let title = genericAttachments["title"];
+          let subtitle = genericAttachments["subTitle"];
+          let imageUrl = genericAttachments["imageUrl"];
+          let buttons = genericAttachments["buttons"];
+          let responseCardDiv = document.createElement("div");
+          let responseCardImg = document.createElement("img");
+          responseCardImg.src = imageUrl;
+          responseCardDiv.appendChild(responseCardImg);
+          for(let i = 0; i < buttons.length; i++){
+            let responseButtons = document.createElement("button");
+            responseButtons.innerHTML = buttons[i].text;
+            responseButtons.value = buttons[i].value;
+            let thisAlias = this.props.alias;
+            let thisBotName = this.props.botName;
+            let thisLexUserId = this.state.lexUserId;
+            let thisSessionAttributes = this.state.sessionAttributes;
+            let thisDebugMode = this.props.debugMode;
+            let myThis = this;
+            responseButtons.addEventListener("click",function(){
+                var inputField = responseButtons.value;
+
+                  // send it to the Lex runtime
+                  var params = {
+                    botAlias: thisAlias,
+                    botName: thisBotName,
+                    inputText: inputField,
+                    userId: thisLexUserId,
+                    sessionAttributes: thisSessionAttributes,
+                  };
+
+                  if (thisDebugMode === true) {
+                    console.log(JSON.stringify(params));
+                  }
+
+                  myThis.showRequest(inputField);
+                  var a = function (err, data) {
+                    if (err) {
+                      console.log(err, err.stack);
+                      myThis.showError(
+                        "Error:  " + err.message + " (see console for details)"
+                      );
+                    }
+                    if (data) {
+                      // capture the sessionAttributes for the next cycle
+                      myThis.setState({ sessionAttributes: data.sessionAttributes });
+                      // show response and/or error/dialog status
+                      myThis.showResponse(data);
+                    }
+                  };
+
+                  myThis.lexruntime.postText(params, a.bind(this));
+                  let inputFieldDOM = document.getElementById("inputField");
+                  inputFieldDOM.innerHTML = "";
+                  myThis.state.data = "";
+            });
+            responseCardDiv.appendChild(responseButtons);
+          }
+          responsePara.appendChild(responseCardDiv);
+        }else{
+          responsePara.appendChild(document.createTextNode(lexResponse.message));
+        }
       }
     }
     if (lexResponse.dialogState === "ReadyForFulfillment") {
