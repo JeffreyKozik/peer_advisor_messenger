@@ -150,6 +150,7 @@ class MyLexChat extends React.Component {
     var responsePara = document.createElement("P");
     responsePara.className = "lexResponse";
     if (lexResponse.message) {
+      console.log("lexResponse.message: " + JSON.stringify(lexResponse.message));
       try{
         let lexResponseMessageJSON = JSON.parse(lexResponse.message);
         if(lexResponseMessageJSON.type == "random"){
@@ -186,14 +187,21 @@ class MyLexChat extends React.Component {
           randomResponseLink.onclick = fullResponse;
           randomResponseDiv.appendChild(randomResponseLink)
           responsePara.appendChild(randomResponseDiv);
-        } /*else if(lexResponseMessageJSON.type == "random"){
-          // use lexResponse and lexResponseMessageJSON to form your graphs
-          // or whatever you'd like to be displayed
-           responsePara.appendChild(whatever you want to be in the chatbot's response message)
+        } /*else if(lexResponseMessageJSON.type == "html"){
+          
         }*/
-        // ADD AN ELSE IF STATEMENT ABOVE
       } catch (error){
-        if("responseCard" in lexResponse){
+        if(lexResponse.message[0] == "<"){
+          let htmlString = lexResponse.message;
+          let newString = htmlString.replace('\n', '');
+          let wrapper = document.createElement('div');
+          wrapper.innerHTML= newString;
+          let responseHTML = wrapper.firstChild;
+          responseHTML.className = "lexResponse";
+          responsePara.className = "";
+          responsePara.appendChild(responseHTML);
+        }
+        else if("responseCard" in lexResponse){
           let genericAttachments = lexResponse["responseCard"]["genericAttachments"][0];
           let title = genericAttachments["title"];
           let subtitle = genericAttachments["subTitle"];
