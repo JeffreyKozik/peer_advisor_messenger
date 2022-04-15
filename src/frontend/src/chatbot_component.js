@@ -210,8 +210,19 @@ class MyLexChat extends React.Component {
           let responseCardDiv = document.createElement("div");
           let responseCardImg = document.createElement("img");
           responseCardImg.src = imageUrl;
+          responseCardImg.style.maxHeight = "20vh";
+          responseCardImg.style.maxWidth = "20vw";
           responseCardDiv.appendChild(responseCardImg);
+          let titleDiv = document.createElement("div");
+          titleDiv.innerHTML = title;
+          titleDiv.style.fontWeight = "bold";
+          responseCardDiv.appendChild(titleDiv);
+          let subTitleDiv = document.createElement("div");
+          subTitleDiv.innerHTML = subtitle;
+          subTitleDiv.style.color = "grey";
+          responseCardDiv.appendChild(subTitleDiv);
           for(let i = 0; i < buttons.length; i++){
+            let responseButtonDiv = document.createElement("div");
             let responseButtons = document.createElement("button");
             responseButtons.innerHTML = buttons[i].text;
             responseButtons.value = buttons[i].value;
@@ -258,7 +269,10 @@ class MyLexChat extends React.Component {
                   inputFieldDOM.innerHTML = "";
                   myThis.state.data = "";
             });
-            responseCardDiv.appendChild(responseButtons);
+            responseButtonDiv.appendChild(responseButtons);
+            responseButtonDiv.style.textAlign = "center";
+            responseButtons.style.fontSize = "20px";
+            responseCardDiv.appendChild(responseButtonDiv);
           }
           responsePara.appendChild(responseCardDiv);
         }else{
