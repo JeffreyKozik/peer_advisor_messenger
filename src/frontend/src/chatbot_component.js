@@ -161,10 +161,12 @@ class MyLexChat extends React.Component {
           randomResponseDiv.appendChild(document.createTextNode(randomResponse));
           let randomResponseLink = document.createElement("button");
           randomResponseLink.innerHTML = "see more";
+          let randomResponseLinkDiv = document.createElement("div");
+          randomResponseLinkDiv.appendChild(randomResponseLink);
           function lessResponse(){
             randomResponseDiv.innerHTML = "";
             randomResponseDiv.appendChild(document.createTextNode(randomResponse));
-            randomResponseDiv.appendChild(randomResponseLink)
+            randomResponseDiv.appendChild(randomResponseLinkDiv);
           }
           function fullResponse(){
             randomResponseDiv.innerHTML = "";
@@ -182,10 +184,12 @@ class MyLexChat extends React.Component {
             let seeLess = document.createElement("button");
             seeLess.innerHTML = "see less";
             seeLess.onclick = lessResponse;
-            randomResponseDiv.appendChild(seeLess)
+            let seeLessDiv = document.createElement("div");
+            seeLessDiv.appendChild(seeLess);
+            randomResponseDiv.appendChild(seeLessDiv)
           }
           randomResponseLink.onclick = fullResponse;
-          randomResponseDiv.appendChild(randomResponseLink)
+          randomResponseDiv.appendChild(randomResponseLinkDiv);
           responsePara.appendChild(randomResponseDiv);
         } /*else if(lexResponseMessageJSON.type == "html"){
           
@@ -193,13 +197,10 @@ class MyLexChat extends React.Component {
       } catch (error){
         if(lexResponse.message[0] == "<"){
           let htmlString = lexResponse.message;
-          let newString = htmlString.replace('\n', '');
-          let wrapper = document.createElement('div');
-          wrapper.innerHTML= newString;
-          let responseHTML = wrapper.firstChild;
-          responseHTML.className = "lexResponse";
-          responsePara.className = "";
-          responsePara.appendChild(responseHTML);
+          let doc = new DOMParser().parseFromString(htmlString, "text/html");
+          let body = doc.childNodes[0].childNodes[1];
+          let bodyInnerHTML = body.innerHTML;
+          responsePara.innerHTML = bodyInnerHTML;
         }
         else if("responseCard" in lexResponse){
           let genericAttachments = lexResponse["responseCard"]["genericAttachments"][0];
