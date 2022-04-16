@@ -145,7 +145,19 @@ class MyLexChat extends React.Component {
   }
 
   showResponse(lexResponse) {
-    console.log("lexResponse: " + JSON.stringify(lexResponse));
+    // let lexmodelbuildingservice = new AWS.LexModelBuildingService();
+    // let params = {
+    //   maxResults: 1000000,
+    //   nextToken: ""
+    // }
+    // lexmodelbuildingservice.getIntents(params, function(err,data){
+    //   if (err) { console.log(err, err.stack);}
+    //   else {
+    //     console.log("data: " + data);
+    //     console.log("data: " + JSON.stringify(data));
+    //   }
+    // })
+    // console.log("lexResponse: " + JSON.stringify(lexResponse));
     var conversationDiv = document.getElementById("conversation");
     var responsePara = document.createElement("P");
     responsePara.className = "lexResponse";
@@ -209,6 +221,7 @@ class MyLexChat extends React.Component {
           let imageUrl = genericAttachments["imageUrl"];
           let buttons = genericAttachments["buttons"];
           let responseCardDiv = document.createElement("div");
+          responseCardDiv.style.textAlign = "center";
           let responseCardImg = document.createElement("img");
           responseCardImg.src = imageUrl;
           responseCardImg.style.maxHeight = "20vh";
