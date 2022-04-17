@@ -7,10 +7,13 @@
 
 # Features
 - We also have some questions where Lex picks out of a few potential answers to a question and gives one randomly. For example if the student asks “Should I major in CS?” PAM picks from 1 of 3 answers randomly to give the student. Then if the student would like to see all of the answers, they can click “see more” to expand the response and see all three answers that PAM has. 
-<img width="408" alt="image" src="https://user-images.githubusercontent.com/29404461/163715638-3c523042-2863-4ff0-80ae-c20b78b8d62f.png">
-- PAM supports embedded links or any other type of html such as ordered lists <img width="243" alt="image" src="https://user-images.githubusercontent.com/29404461/163715670-0927e0ef-56bd-4bcc-9471-2a65031ea20f.png">
-- PAM also supports "response cards" with pictures and interactive buttons <img width="200" alt="image" src="https://user-images.githubusercontent.com/29404461/163715682-34e72e66-fde3-4d94-b9b9-507800703daf.png">
-- If a question is asked that PAM doesn't know, PAM provides a link to the search results page on CWRU's website <img width="406" alt="image" src="https://user-images.githubusercontent.com/29404461/163715694-94fbd57e-6e88-44a5-8fcc-1e9eed38e055.png">
+  - <img width="408" alt="image" src="https://user-images.githubusercontent.com/29404461/163715638-3c523042-2863-4ff0-80ae-c20b78b8d62f.png">
+- PAM supports embedded links or any other type of html such as ordered lists 
+  -  <img width="243" alt="image" src="https://user-images.githubusercontent.com/29404461/163715670-0927e0ef-56bd-4bcc-9471-2a65031ea20f.png">
+- PAM also supports "response cards" with pictures and interactive buttons 
+  - <img width="200" alt="image" src="https://user-images.githubusercontent.com/29404461/163715682-34e72e66-fde3-4d94-b9b9-507800703daf.png">
+- If a question is asked that PAM doesn't know, PAM provides a link to the search results page on CWRU's website 
+  - <img width="406" alt="image" src="https://user-images.githubusercontent.com/29404461/163715694-94fbd57e-6e88-44a5-8fcc-1e9eed38e055.png">
 - Currently, this chatbot will be provided as a link on a page on CWRU’s website, but in the future it can be integrated as a popup on the CWRU webpage. 
 - We also created a graph showing the question flow that PAM asks. 
 
