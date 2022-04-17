@@ -2,7 +2,7 @@
 
 # Intro & Purpose
 - PAM, which stands for Peer Advisor Messenger is a chatbot that is intended to be used by either prospective Case Western Reserve University students or current Case Western Reserve University students to assist them by answering questions they have about academics, extracurriculars, their career, and other topics. 
-- It was built using React as the frontend with the chatbot functionality being from Amazon Web Services “Lex”. Some of the questions that PAM can answer include “Should I get my Masters degree in CS?” as well as “Should I study abroad” in which PAM can get information about things like the student’s major, semester, and where they want to study abroad. 
+- It was built using React as the frontend with the chatbot functionality being from Amazon Web Services “Lex”. Some of the questions that PAM can answer include “Should I get my Masters degree in CS?” as well as “Should I study abroad” in which PAM can get information about things like which semester and where they want to study abroad. 
 - PAM is also intelligent enough to not have to be asked a question exactly right by the student, instead it’s able to figure out what the student is probably asking using AWS Lex’s inbuilt natural language processing capabilities. 
 
 # Features
