@@ -13,7 +13,7 @@
 - PAM also supports "response cards" with pictures and interactive buttons 
   - <img width="200" alt="image" src="https://user-images.githubusercontent.com/29404461/163715682-34e72e66-fde3-4d94-b9b9-507800703daf.png">
 - If a question is asked that PAM doesn't know, PAM provides a link to the search results page on CWRU's website 
-  - <img width="406" alt="image" src="https://user-images.githubusercontent.com/29404461/163715694-94fbd57e-6e88-44a5-8fcc-1e9eed38e055.png">
+  - <img width="420" alt="image" src="https://user-images.githubusercontent.com/29404461/163718101-4d63495d-b8b1-4ad6-9e27-8b8114574666.png">
 - Currently, this chatbot will be provided as a link on a page on CWRU’s website, but in the future it can be integrated as a popup on the CWRU webpage. 
 - We also created a graph showing the question flow that PAM asks. 
 
