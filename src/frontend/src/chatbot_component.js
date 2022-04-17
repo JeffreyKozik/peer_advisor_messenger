@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import merge from "lodash/merge";
 import AWS from "aws-sdk";
+import axios from 'axios';
 import "./chatbot_component.css";
 
 class MyLexChat extends React.Component {
@@ -157,7 +158,7 @@ class MyLexChat extends React.Component {
     //     console.log("data: " + JSON.stringify(data));
     //   }
     // })
-    // console.log("lexResponse: " + JSON.stringify(lexResponse));
+    console.log("lexResponse: " + JSON.stringify(lexResponse));
     var conversationDiv = document.getElementById("conversation");
     var responsePara = document.createElement("P");
     responsePara.className = "lexResponse";
@@ -298,13 +299,36 @@ class MyLexChat extends React.Component {
       responsePara.appendChild(
         document.createTextNode("Ready for fulfillment")
       );
-      // TODO:  show slot values
     }
     var spacer = document.createElement("div");
     spacer.className = "convoSpacer";
     spacer.appendChild(responsePara);
     conversationDiv.appendChild(spacer);
     conversationDiv.scrollTop = conversationDiv.scrollHeight;
+    if(lexResponse.intentName == null){
+      var responsePara2 = document.createElement("P");
+      let userMessages = document.getElementsByClassName("userRequest");
+      let lastUserMessageElement = userMessages[userMessages.length - 1];
+      let lastUserMessage = lastUserMessageElement.innerHTML;
+      let searchUrl = "https://case.edu/search-results/?q=" + lastUserMessage;
+      let responseString = "<p>Perhaps you can find answers at this <a href=\"" + searchUrl + "\">link</a>.</p>"; 
+      let wrapper = document.createElement('div');
+      wrapper.innerHTML = responseString;
+      let responseHTML = wrapper.firstChild;
+      responseHTML.className = "lexResponse";
+      responsePara2.className = "";
+      responsePara2.appendChild(responseHTML);
+      if (lexResponse.dialogState === "ReadyForFulfillment") {
+        responsePara2.appendChild(
+          document.createTextNode("Ready for fulfillment")
+        );
+      }
+      var spacer = document.createElement("div");
+      spacer.className = "convoSpacer";
+      spacer.appendChild(responsePara2);
+      conversationDiv.appendChild(spacer);
+      conversationDiv.scrollTop = conversationDiv.scrollHeight;
+    }
   }
 
   handleChange(event) {
