@@ -32,6 +32,8 @@ class MyLexChat extends React.Component {
     this.conversationDivRef.current.appendChild(greetingNode);
 
     let faqNode = document.createElement("ul");
+    faqNode.style.display = "inline-block";
+    document.getElementById("conversation").style.textAlign = "center";
     this.greetingMsgRef.current = faqNode;
     faqNode.className = "lexResponse";
     let title = "Frequently Asked Questions";
