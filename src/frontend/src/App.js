@@ -20,7 +20,7 @@ function App() {
         headerText="Chat With Pam"
         headerStyle={{ backgroundColor: "#0a304e", fontSize: "25px" }}
         greeting={
-          'Hello. I am pam, the peer advisor messenger AI chatbot. I can find the right resources and answer some of your questions! How can I help you?'
+          'Hello. I am pam, the peer advisor messenger AI chatbot. Please ask anything or click one of the FAQs! How can I help you?'
         }
         width = "50%"
         margin = "25%"

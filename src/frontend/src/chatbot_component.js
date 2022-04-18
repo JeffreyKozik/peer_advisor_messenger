@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import merge from "lodash/merge";
 import AWS from "aws-sdk";
-import axios from 'axios';
 import "./chatbot_component.css";
 
 class MyLexChat extends React.Component {
@@ -31,6 +30,78 @@ class MyLexChat extends React.Component {
     greetingNode.appendChild(document.createTextNode(this.props.greeting));
     greetingNode.appendChild(document.createElement("br"));
     this.conversationDivRef.current.appendChild(greetingNode);
+
+    let faqNode = document.createElement("ul");
+    this.greetingMsgRef.current = faqNode;
+    faqNode.className = "lexResponse";
+    let title = "Frequently Asked Questions";
+    let buttons = ["How can I get an internship?",
+                  "What is the difference between a B.S. and B.A.?",
+                  "Which classes should I take?"];
+    let responseCardDiv = document.createElement("div");
+    responseCardDiv.style.textAlign = "center";
+    let titleDiv = document.createElement("div");
+    titleDiv.innerHTML = title;
+    titleDiv.style.fontWeight = "bold";
+    responseCardDiv.appendChild(titleDiv);
+    for(let i = 0; i < buttons.length; i++){
+      let responseButtonDiv = document.createElement("div");
+      let responseButtons = document.createElement("button");
+      responseButtons.innerHTML = buttons[i];
+      responseButtons.value = buttons[i];
+      let thisAlias = this.props.alias;
+      let thisBotName = this.props.botName;
+      let thisLexUserId = this.state.lexUserId;
+      let thisSessionAttributes = this.state.sessionAttributes;
+      let thisDebugMode = this.props.debugMode;
+      let myThis = this;
+      responseButtons.addEventListener("click",function(){
+          var inputField = responseButtons.value;
+
+            // send it to the Lex runtime
+            var params = {
+              botAlias: thisAlias,
+              botName: thisBotName,
+              inputText: inputField,
+              userId: thisLexUserId,
+              sessionAttributes: thisSessionAttributes,
+            };
+
+            if (thisDebugMode === true) {
+              console.log(JSON.stringify(params));
+            }
+
+            myThis.showRequest(inputField);
+            var a = function (err, data) {
+              if (err) {
+                console.log(err, err.stack);
+                myThis.showError(
+                  "Error:  " + err.message + " (see console for details)"
+                );
+              }
+              if (data) {
+                // capture the sessionAttributes for the next cycle
+                myThis.setState({ sessionAttributes: data.sessionAttributes });
+                // show response and/or error/dialog status
+                myThis.showResponse(data);
+              }
+            };
+
+            myThis.lexruntime.postText(params, a.bind(this));
+            let inputFieldDOM = document.getElementById("inputField");
+            inputFieldDOM.innerHTML = "";
+            myThis.state.data = "";
+      });
+      responseButtonDiv.appendChild(responseButtons);
+      responseButtonDiv.style.textAlign = "center";
+      responseButtons.style.fontSize = "16px";
+      responseCardDiv.appendChild(responseButtonDiv);
+    }
+    faqNode.appendChild(responseCardDiv);
+    faqNode.appendChild(document.createElement("br"));
+    this.conversationDivRef.current.appendChild(faqNode);
+
+
 
     AWS.config.region = this.props.region || "us-east-1";
     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
@@ -205,7 +276,7 @@ class MyLexChat extends React.Component {
           randomResponseDiv.appendChild(randomResponseLinkDiv);
           responsePara.appendChild(randomResponseDiv);
         } /*else if(lexResponseMessageJSON.type == "html"){
-          
+
         }*/
       } catch (error){
         if(lexResponse.message[0] == "<"){
@@ -311,7 +382,7 @@ class MyLexChat extends React.Component {
       let lastUserMessageElement = userMessages[userMessages.length - 1];
       let lastUserMessage = lastUserMessageElement.innerHTML;
       let searchUrl = "https://case.edu/search-results/?q=" + lastUserMessage;
-      let responseString = "<p>Perhaps you can find answers at this <a href=\"" + searchUrl + "\">link</a>.</p>"; 
+      let responseString = "<p>Perhaps you can find answers at this <a href=\"" + searchUrl + "\">link</a>.</p>";
       let wrapper = document.createElement('div');
       wrapper.innerHTML = responseString;
       let responseHTML = wrapper.firstChild;
