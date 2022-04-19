@@ -31,11 +31,123 @@ class MyLexChat extends React.Component {
     greetingNode.appendChild(document.createElement("br"));
     this.conversationDivRef.current.appendChild(greetingNode);
 
+    let faqNodeConvoSpacer  = document.createElement("div");
+    faqNodeConvoSpacer.className = "convoSpacer";
+    faqNodeConvoSpacer.style.display = "flex";
+    faqNodeConvoSpacer.style.justifyContent = "space-evenly";
+
+    // let quickQuestionDiv = document.createElement("div");
+    // quickQuestionDiv.style.width = "33%";
+    // let quickQuestionButton = document.createElement("button");
+    // quickQuestionButton.innerHTML = "Quick Question";
+    // quickQuestionButton.style.fontSize = "16px";
+    // quickQuestionDiv.appendChild(quickQuestionButton);
+    // faqNodeConvoSpacer.appendChild(quickQuestionDiv);
+    // let thisAlias = this.props.alias;
+    // let thisBotName = this.props.botName;
+    // let thisLexUserId = this.state.lexUserId;
+    // let thisSessionAttributes = this.state.sessionAttributes;
+    // let thisDebugMode = this.props.debugMode;
+    // let myThis = this;
+    // // let qqMessageDiv = document.createElement("div");
+    // quickQuestionButton.addEventListener("click",function(){
+    //   var inputField = "question";
+
+    //   // send it to the Lex runtime
+    //   var params = {
+    //     botAlias: thisAlias,
+    //     botName: thisBotName,
+    //     inputText: inputField,
+    //     userId: thisLexUserId,
+    //     sessionAttributes: thisSessionAttributes,
+    //   };
+
+    //   if (thisDebugMode === true) {
+    //     console.log(JSON.stringify(params));
+    //   }
+
+    //   myThis.showRequest(inputField);
+    //   var a = function (err, data) {
+    //     if (err) {
+    //       console.log(err, err.stack);
+    //       myThis.showError(
+    //         "Error:  " + err.message + " (see console for details)"
+    //       );
+    //     }
+    //     if (data) {
+    //       // capture the sessionAttributes for the next cycle
+    //       myThis.setState({ sessionAttributes: data.sessionAttributes });
+    //       // show response and/or error/dialog status
+    //       myThis.showResponse(data);
+    //     }
+    //   };
+
+    //   myThis.lexruntime.postText(params, a.bind(this));
+    //   let inputFieldDOM = document.getElementById("inputField");
+    //   inputFieldDOM.innerHTML = "";
+    //   myThis.state.data = "";
+    // });
+
     let faqNode = document.createElement("ul");
     faqNode.style.display = "inline-block";
+    faqNode.style.width = "50%";
     document.getElementById("conversation").style.textAlign = "center";
     this.greetingMsgRef.current = faqNode;
     faqNode.className = "lexResponse";
+    faqNodeConvoSpacer.appendChild(faqNode);
+
+    let menuDiv = document.createElement("div");
+    menuDiv.style.width = "50%";
+    let menuButton = document.createElement("button");
+    menuButton.innerHTML = "Menu";
+    menuButton.style.fontSize = "16px";
+    menuDiv.appendChild(menuButton);
+    faqNodeConvoSpacer.appendChild(menuDiv);
+
+    let thisAlias = this.props.alias;
+    let thisBotName = this.props.botName;
+    let thisLexUserId = this.state.lexUserId;
+    let thisSessionAttributes = this.state.sessionAttributes;
+    let thisDebugMode = this.props.debugMode;
+    let myThis = this;
+    menuButton.addEventListener("click",function(){
+      var inputField = "menu";
+
+      // send it to the Lex runtime
+      var params = {
+        botAlias: thisAlias,
+        botName: thisBotName,
+        inputText: inputField,
+        userId: thisLexUserId,
+        sessionAttributes: thisSessionAttributes,
+      };
+
+      if (thisDebugMode === true) {
+        console.log(JSON.stringify(params));
+      }
+
+      myThis.showRequest(inputField);
+      var a = function (err, data) {
+        if (err) {
+          console.log(err, err.stack);
+          myThis.showError(
+            "Error:  " + err.message + " (see console for details)"
+          );
+        }
+        if (data) {
+          // capture the sessionAttributes for the next cycle
+          myThis.setState({ sessionAttributes: data.sessionAttributes });
+          // show response and/or error/dialog status
+          myThis.showResponse(data);
+        }
+      };
+
+      myThis.lexruntime.postText(params, a.bind(this));
+      let inputFieldDOM = document.getElementById("inputField");
+      inputFieldDOM.innerHTML = "";
+      myThis.state.data = "";
+    });
+
     let title = "Frequently Asked Questions";
     let buttons = ["How can I get an internship?",
                   "What is the difference between a B.S. and B.A.?",
@@ -101,7 +213,7 @@ class MyLexChat extends React.Component {
     }
     faqNode.appendChild(responseCardDiv);
     faqNode.appendChild(document.createElement("br"));
-    this.conversationDivRef.current.appendChild(faqNode);
+    this.conversationDivRef.current.appendChild(faqNodeConvoSpacer);
 
 
 
@@ -468,6 +580,7 @@ class MyLexChat extends React.Component {
       marginBottom: "1%",
       marginLeft: this.props.margin,
       marginRight: this.props.margin,
+      resize: "both"
     }
     return (
       <div id="chatwrapper" style = {chatwrapperStyle}>

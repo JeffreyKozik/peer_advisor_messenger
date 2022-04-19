@@ -13,6 +13,7 @@ function App() {
 
       <MyLexChat
         botName="WebUiOrderFlowers"
+        alias="optionalMenu"
         IdentityPoolId="us-east-1:708a563d-f972-4cf0-bf91-53f7d1286a5a"
         placeholder="Ask any question about CWRU..."
         backgroundColor="#FFFFFF"
@@ -20,7 +21,7 @@ function App() {
         headerText="Chat With Pam"
         headerStyle={{ backgroundColor: "#0a304e", fontSize: "25px" }}
         greeting={
-          'Hello. I am pam, the peer advisor messenger AI chatbot. Please ask anything or click one of the FAQs! How can I help you?'
+          'Hello. I am pam, the peer advisor messenger AI chatbot. Click one of the FAQs to ask that question, or click "Menu" to be given question categories to choose from.'
         }
         width = "100%"
         margin = "0%"
