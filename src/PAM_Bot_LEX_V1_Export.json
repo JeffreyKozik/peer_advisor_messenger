@@ -1,0 +1,1983 @@
+{
+  "metadata": {
+    "schemaVersion": "1.0",
+    "importType": "LEX",
+    "importFormat": "JSON"
+  },
+  "resource": {
+    "name": "WebUiOrderFlowers",
+    "version": "40",
+    "intents": [
+      {
+        "name": "peerAdvisor",
+        "version": "12",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "I haven't declared computer science as my major. Who can I ask major specific questions to",
+          "It is hard to reach my academic advisor. Where should I direct my questions",
+          "Who can I talk to for specific career advice and resume review",
+          "ask for career advice",
+          "resume review",
+          "resume screening",
+          "questions on resume",
+          "What to do after graduation with a cs degree",
+          "future career goal",
+          "Who can I ask for class recommendations",
+          "I need help choosing my classes for next semester",
+          "What classes should I take next semester",
+          "What classes should I avoid taking at the same time",
+          "How do I choose my depth area",
+          "How do I choose classes for next semester",
+          "How do seniors find jobs",
+          "Are there students who can give me advice on my degree",
+          "Are there students who can give me advice on my career",
+          "Who can I ask for advice",
+          "Who can I ask for advice from the student perspective",
+          "Student advice",
+          "Advice from students",
+          "How should I plan my courses over the next four years",
+          "Should I graduate in three years if I can",
+          "Which professors should I try to have",
+          "Which professors should I avoid",
+          "What courses have the heaviest workload",
+          "Which courses have the heaviest workload",
+          "Is CS stressful if I haven't coded before"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nPAM recommends meeting with the CSE Peer Advisors. \nPeer Advisors support all engineering students by using \ntheir student perspective to advise you on various \ntopics including: major and minor selection, \ncourse requirements, undergraduate research, \npost-graduation planning, experiential learning, \namong other campus resources. \nYou can sign up with one \n<a href=\"https://community.case.edu/csepeeradvisors/office-hours-(spring)/\">here</a>. \nAn additional resource you may use is your \nnavigator who can point you in the right direction or \nhelp connect you to offices on campus that can help with\nyour questions. You can find the name of your navigator \nunder the advisors tab on SIS or sign up with an undedicated\none <a href=\"https://case.edu/studentsuccess/navigators/drop-hours\">here</a>."
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "initialize"
+          }
+        ]
+      },
+      {
+        "name": "other",
+        "version": "4",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "Other",
+          "five",
+          "other"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p> \nI see that you have other questions not covered by these topics. Please ask me your questions and you may return to the main menu any time by typing return to main menu.\n</p>\n"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "initialize"
+          }
+        ],
+        "outputContexts": [
+          {
+            "turnsToLive": 20,
+            "timeToLiveInSeconds": 86400,
+            "name": "other"
+          }
+        ]
+      },
+      {
+        "name": "eleg_and_req",
+        "version": "4",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "one",
+          "Course Eligibility",
+          "course eligibility and requirement",
+          "Course Requirement"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nI see that you have questions about course eligibility and requirements. I can asnwer questions regarding depth areas, course substitution forms, registration, and more so please ask your question! \n</p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "initialize"
+          }
+        ],
+        "outputContexts": [
+          {
+            "turnsToLive": 20,
+            "timeToLiveInSeconds": 86400,
+            "name": "eleg_and_req"
+          }
+        ]
+      },
+      {
+        "name": "quickquestion",
+        "version": "2",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "quick question"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "PlainText",
+              "content": "You picked \"quick question\", please go ahead and ask me!"
+            }
+          ]
+        },
+        "inputContexts": [],
+        "outputContexts": [
+          {
+            "turnsToLive": 20,
+            "timeToLiveInSeconds": 86400,
+            "name": "academic_resources"
+          },
+          {
+            "turnsToLive": 20,
+            "timeToLiveInSeconds": 86400,
+            "name": "career_help"
+          },
+          {
+            "turnsToLive": 20,
+            "timeToLiveInSeconds": 86400,
+            "name": "eleg_and_req"
+          },
+          {
+            "turnsToLive": 20,
+            "timeToLiveInSeconds": 86400,
+            "name": "initialize"
+          },
+          {
+            "turnsToLive": 20,
+            "timeToLiveInSeconds": 86400,
+            "name": "other"
+          },
+          {
+            "turnsToLive": 20,
+            "timeToLiveInSeconds": 86400,
+            "name": "resources"
+          },
+          {
+            "turnsToLive": 20,
+            "timeToLiveInSeconds": 86400,
+            "name": "student_activities"
+          },
+          {
+            "turnsToLive": 20,
+            "timeToLiveInSeconds": 86400,
+            "name": "student_resources"
+          },
+          {
+            "turnsToLive": 20,
+            "timeToLiveInSeconds": 86400,
+            "name": "studyabroad_Lookup"
+          },
+          {
+            "turnsToLive": 20,
+            "timeToLiveInSeconds": 86400,
+            "name": "undergrad_experiences"
+          }
+        ]
+      },
+      {
+        "name": "postGrad",
+        "version": "10",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "Career",
+          "Masters",
+          "Grad school",
+          "Job",
+          "Interview",
+          "Resume",
+          "Can someone help me with my resume",
+          "Where can I get my resume checked",
+          "Is my resume good enough",
+          "Can someone help me practice interviews",
+          "Practice interviews",
+          "I am looking for a job",
+          "How to prepare for an interview",
+          "I don't know what to do with my career",
+          "I don't know what to do next",
+          "Where do I go from here",
+          "Should I do a masters",
+          "Should I do a PhD",
+          "PhD",
+          "Should I apply to grad school",
+          "Should I go to grad school",
+          "When do grad school applications open",
+          "Does CWRU offer career services",
+          "How should I prepare for my job search"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nThe post-graduate planning office helps you make \nconnections, prepare for job and graduate school interviews, \nfind opportunities, and gives career-related advice \nregardless of what you want to do and how far along you are\nin that process. Check out their website \n<href=\"https://case.edu/postgrad/\">here</a>\n</p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "career_help"
+          }
+        ]
+      },
+      {
+        "name": "resAcCoding",
+        "version": "7",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "learn to code",
+          "coding",
+          "learn coding",
+          "How can I learn to code",
+          "How can I prepare for my first coding class",
+          "What do I need to do to code",
+          "I want to learn how to code",
+          "Does CWRU offer resources for new coders",
+          "Does CWRU have coding resources",
+          "Does CWRU offer free coding courses",
+          "How can I learn to code without taking a class",
+          "Can I learn to code if I'm not a CS major",
+          "How do I start coding",
+          "How do I start learning to code",
+          "What can I do to prepare for my first coding class",
+          "How do I prepare for my first coding class",
+          "Can I be a CS major if I don't know how to code"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nCWRU offers a coding bootcamp which you can check out \n<a href=\"https://bootcamp.case.edu/\">here</a>\n</p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "academic_resources"
+          }
+        ]
+      },
+      {
+        "name": "research",
+        "version": "8",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "How do I get involved with research on campus",
+          "What research opportunities are available",
+          "What research opportunities exist",
+          "How do I find professors who are doing research I am interested in",
+          "Research opportunities",
+          "Research",
+          "Where can I find research opportunities",
+          "How do I find research for the summer",
+          "How do I find a research lab to work in for the summer",
+          "I want to do research over the summer",
+          "Im looking for research opportunities",
+          "How can I join a research team",
+          "How can I work in a research lab",
+          "Which professors work with student research assistants",
+          "How can I become a student research assistant",
+          "Are there student research assistant opportunities",
+          "Are there research opportunities available to students",
+          "Can I do research as a freshman",
+          "Can I be a research assistant",
+          "Can I be a research assistant as a freshman",
+          "How can I become a research assistant",
+          "Are there research opportunities available to me",
+          "How do I find research opportunities",
+          "one"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nI see that you want to learn more about research! You can find research opportunities through  \n<a href=\"https://case.edu/source/\">SOURCE</a>, \n<a href=\"https://case.edu/research/about/research-centers-interdisciplinary-institutes\">Interdisciplinary Research Centers and Labs </a>\n, and the <a href=\"https://case.edu/research/students\">Student Research Homepage</a>.\n</p>\n<p> PAM also recommends getting in touch with a professor who has research that interests you. You can often find oppurtunites inside and outside your depatment </p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "undergrad_experiences"
+          }
+        ]
+      },
+      {
+        "name": "resAcEnglish",
+        "version": "8",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "english help",
+          "english language help",
+          "How can I improve my english",
+          "I need help with my english",
+          "Can I get an english tutor",
+          "How can I get help with my english",
+          "English learning help",
+          "English language resources",
+          "Does CWRU have english learning resources",
+          "Does CWRU have english second language resources"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nYou can find resources to improve your English speaking/ \nwriting skills \n<a href=\"https://case.edu/studentsuccess/academic-resources/english-language-resource\">here</a>.\n</p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "academic_resources"
+          }
+        ]
+      },
+      {
+        "name": "satisfiedCSreqs",
+        "version": "9",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "How can I tell if I have satisfied my computer science requirements",
+          "satisfied my major requirements for cs but I have not declared yet",
+          "satisfied my major requirements for cs after I declared it",
+          "How to check if I satisfied my cs or comp sci major requirements",
+          "Do I satisfy my cs requirements",
+          "What are the CS major requirements",
+          "What are my major requirements",
+          "What are my general education requirements",
+          "What classes do I need to take to graduate",
+          "What are the CS BA requirements",
+          "What are the CS BS requirements",
+          "Have I completed my degree requirements",
+          "What are my degree requirements",
+          "How can I graduate early",
+          "Where can I find my major requirements",
+          "Where can I find my degree requirements"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nPlease check on SIS > Academics > Academic Progress > View What If Report\n</p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "eleg_and_req"
+          }
+        ]
+      },
+      {
+        "name": "diversity",
+        "version": "1",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [],
+        "slots": []
+      },
+      {
+        "name": "no_overwhelm_me",
+        "version": "8",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "will computer science overwhelm me",
+          "will i be overwhelmed with the cs courseload",
+          "how can i make sure I'm not overwhelmed",
+          "are there specific classes that I should avoid taking at the same time",
+          "how do I make sure that I am not overwhelmed with work in a given semester",
+          "How many credits is too many",
+          "How should I plan my courses to avoid being overwhelmed",
+          "How stressful is it being a CS major",
+          "How stressful is CS",
+          "Am I going to be overwhelmed by CS"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "{\n    \"type\": \"random\",\n    \"message\": [\"While there can a lot of work you have to do as a CS major, is this work something you enjoy or something you always dread?\", \n                \"CS can be stressful, but there's a number of things you can do to reduce this stress such as not taking too many CS classes at once, not overwhelming yourself with extracurriculars, and making time for yourself to relax.\", \n                \"If you're worried about being overwhelmed by CS reach out to your professors and peer advisors to see how much time you'll need to put into each class so you can schedule accordingly.\"]\n}"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "other"
+          }
+        ]
+      },
+      {
+        "name": "resAcTutor",
+        "version": "7",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "need help in classes",
+          "tutor",
+          "need tutor",
+          "help with classes",
+          "academic help",
+          "study sessions",
+          "group study",
+          "group study sessions",
+          "Where can I find tutors",
+          "Are there tutors available",
+          "How can I get help with a class",
+          "Can I get tutored for a class",
+          "Are study groups available",
+          "How do I find a tutor",
+          "How do I find a study group",
+          "I need help with a class",
+          "How can I get help studying for my class",
+          "Does CWRU offer tutoring",
+          "Does CWRU offer tutoring services",
+          "Does CWRU provide tutors",
+          "Where can I find on campus tutoring",
+          "Does CWRU offer free tutoring",
+          "Is there free tutoring available",
+          "Can I get a tutor for free",
+          "How can I get a tutor for free"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nSome classes offer SI (supplemental instruction) sessions; \nyou can see if these are available for your class\n<a href=\"https://case.edu/studentsuccess/academic-resources/supplemental-instruction-si/si-schedule\">here</a>. \nYou can also find an individual tutor \n<a href=\"https://case.edu/studentsuccess/academic-resources/peer-tutoring\">here</a>\nand group study sessions \n<a href=\"https://case.edu/studentsuccess/academic-resources/study-group-1\">here</a>. \nIf your class is not listed as an option, you can reach out \nto academic services to request that a peer tutor \nbe found for your class (information linked on the same page).\n</p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "academic_resources"
+          }
+        ]
+      },
+      {
+        "name": "student_activities",
+        "version": "8",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "Student Activities"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nI see that you are looking for an activity to get involved in! PAM is able to answer questions regarding leadership and volunteering oppurtunies. Please go ahead and type your question. \n</p>\n"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "undergrad_experiences"
+          }
+        ],
+        "outputContexts": [
+          {
+            "turnsToLive": 20,
+            "timeToLiveInSeconds": 86400,
+            "name": "student_activities"
+          }
+        ]
+      },
+      {
+        "name": "volunteering",
+        "version": "10",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "volunteering",
+          "volunteer",
+          "volunteer opportunities",
+          "volunteering opportunities",
+          "get involved",
+          "community involvement",
+          "How can I volunteer at CWRU",
+          "Where can I volunteer",
+          "Where can I find volunteering opportunities",
+          "What are some volunteer opportunities at CWRU",
+          "Where do I find volunteering opportunities",
+          "How do I volunteer",
+          "What volunteering opportunities exist",
+          "How can I get involved in the community",
+          "What organizations can I volunteer with",
+          "What volunteering opportunities does CWRU offer",
+          "Can you help me find volunteering opportunities",
+          "I would like to volunteer",
+          "Im looking for volunteer opportunities",
+          "Im looking for way to volunteer",
+          "Student Activities"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nYou can join the Civic Engagement Scholars program \n<a href=\"https://case.edu/studentlife/civicengagement/community-service/civic-engagement-scholars\">here</a>\nor volunteer through CCEL for a lower commitment opportunity \n<a href=\"https://case.edu/studentlife/civicengagement/\">here</a>\n</p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "student_activities"
+          }
+        ]
+      },
+      {
+        "name": "differencebwBSBA",
+        "version": "10",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "What is the difference between a BS and BA in computer science",
+          "What are the pros and cons of getting a BA vs BS",
+          "difference between BA and BS",
+          "Should I get a BA or BS",
+          "Is a BS better than a BA",
+          "Why should I get a BS over a BA",
+          "Why should I get a BA over a BS",
+          "Is a BS or BA better",
+          "What's the difference between a BS and a BA",
+          "Should I do a BS or a BA",
+          "What else do I have to do for a BS",
+          "How much work is a BS vs a BA"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nCheck out this \n<a href=\"https://engineering.case.edu/computer-and-data-sciences/bachelors-degree-programs\">\nlink</a>\n</p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "other"
+          }
+        ]
+      },
+      {
+        "name": "student_services",
+        "version": "3",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "Student Services",
+          "Student Life"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nI see that you are looking for student resources! I can find resources regarding disabiltiy, Title IX, Financial Aid, Health and Counselling services and more! Just go ahead and type your question. \n</p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "resources"
+          }
+        ],
+        "outputContexts": [
+          {
+            "turnsToLive": 20,
+            "timeToLiveInSeconds": 86400,
+            "name": "student_resources"
+          }
+        ]
+      },
+      {
+        "name": "alumni_network",
+        "version": "8",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "Where can I find CWRU alumni",
+          "How much do alumni get paid",
+          "Who is the highest paid alumni",
+          "What are CWRU alumni doing",
+          "Where do CWRU alumni work",
+          "Where do CWRU alumni go",
+          "Which schools have CWRU alumni gotten into",
+          "Are there any alumni in ivy leagues",
+          "Does anyone from CWRU get into MIT",
+          "Does anyone from CWRU get into Harvard",
+          "What jobs do CWRU alumni do",
+          "alumni",
+          "alumnus",
+          "CWRU alumni",
+          "Who are CWRU alumni",
+          "Are there any famous alumni",
+          "Can I connect with alumni",
+          "Can I meet with alumni",
+          "Are there any alumni still in Cleveland",
+          "Are there any alumni still in the area",
+          "Do CWRU alumni work abroad",
+          "Do CWRU alumni study abroad",
+          "Do CWRU alumni live in the west coast",
+          "international alumni",
+          "How do I find cwru alumni",
+          "How can I connect with cwru alumni",
+          "How do I network with cwru alumni"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nThere are CWRU alumni all over the world doing all different\nsorts of careers and changing the world in many different ways.\nIf you want to read more about the alumni visit the link \n<a href=\"https://case.edu/alumni/\">here</a>\n</p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "career_help"
+          }
+        ]
+      },
+      {
+        "name": "extracurriculars",
+        "version": "12",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "What CS clubs exist",
+          "What CS organizations exist",
+          "What CS clubs and organizations exist",
+          "What CS clubs can I join",
+          "What CS organizations can I join",
+          "What CS clubs and organizations can I join",
+          "clubs",
+          "CS clubs",
+          "What CS related activities can I be a part of",
+          "What CS related activities exist on campus",
+          "What CS activities exist outside of class",
+          "Is there a coding club",
+          "Is there an engineering club",
+          "What clubs are good for CS majors",
+          "What clubs are good for CS",
+          "How can I get involved with CS outside of class",
+          "How do I find CS clubs",
+          "Are there any CS clubs",
+          "How do I join a club",
+          "How do I find clubs on campus",
+          "Where can I find all of the clubs on campus",
+          "What clubs can I join"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nI see that you are looking for clubs! \n<br>\nSome CS related student clubs are: \nthe Association for Computing Machinery, \nCWRU Hackathon, WISER, Math Club, Girls Who Code,\nHackSoc (hacker society), CWRU Robotics. \nYou can find information about these clubs and all \nother student orgs. on campus\n<a href=\"https://community.case.edu/club_signup\">here</a>\n</p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "undergrad_experiences"
+          }
+        ]
+      },
+      {
+        "name": "Undergrad_Experience",
+        "version": "5",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "two",
+          "Adding to your Undergraduate Experience",
+          "adding to your undergraduate experience",
+          "undergraduate experience",
+          "undergrad experience"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p> I see that you have chosen adding to your undergraduate experience. Please select one of the options below or type return to main menu to go back at anytime </p>\n<p> Research <br> Study Abroad <br> Clubs and <br> Student Activities </p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "initialize"
+          }
+        ],
+        "outputContexts": [
+          {
+            "turnsToLive": 20,
+            "timeToLiveInSeconds": 86400,
+            "name": "undergrad_experiences"
+          }
+        ]
+      },
+      {
+        "name": "freeTech",
+        "version": "3",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "Software",
+          "Free software",
+          "Download software",
+          "Software center",
+          "What is the software center",
+          "Where can I download software for my classes",
+          "I need specific software for my class",
+          "technology",
+          "four"
+        ],
+        "slots": [
+          {
+            "sampleUtterances": [],
+            "slotType": "freeTech",
+            "slotTypeVersion": "1",
+            "obfuscationSetting": "DEFAULT_OBFUSCATION",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "What are you looking for?"
+                }
+              ],
+              "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"title\":\"Technology Resources\",\"buttons\":[{\"text\":\"Software Center\",\"value\":\"https://softwarecenter.case.edu/eula.php\"},{\"text\":\"Computer Labs\",\"value\":\"https://bulletin.case.edu/schoolofengineering/compdatasci/#facilitiestext\"},{\"text\":\"Use Software Remotely\",\"value\":\"myapps.case.edu\"},{\"text\":\"Other Tech Support\",\"value\":\"https://case.edu/utech/\"}]}]}",
+              "maxAttempts": 2
+            },
+            "priority": 1,
+            "defaultValueSpec": {
+              "defaultValueList": []
+            },
+            "name": "freeT"
+          }
+        ],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nExplore this <a href={freeT}>link</a> to learn more!\n</p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "resources"
+          }
+        ]
+      },
+      {
+        "name": "classList",
+        "version": "8",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "Is there a list of computer science courses being offered in future semesters",
+          "How do I know if a course will be offered in an upcoming semester",
+          "Courses for next semester",
+          "What courses can I take next semester",
+          "spring courses",
+          "fall courses",
+          "course list",
+          "class list",
+          "fall classes",
+          "spring classes",
+          "future classes",
+          "next classes",
+          "next course",
+          "How often is a given course offered",
+          "The course I want isn't available next semester",
+          "When is a course going to be offered again",
+          "Are certain classes only available in the fall",
+          "Are certain classes only available in the spring",
+          "What classes are offered every semester",
+          "How can I plan my classes for future semester",
+          "How do I know when a class is going to be offered again",
+          "Are class lists available for future semesters",
+          "When is a class going to be offered again"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nClasses for next semester are scheduled by the department \nat least one semester in advance (and often multiple semesters).\nClasses are also generally offered in the same pattern they \nare historically offered which is something students can check \non SIS when they click on the 'previously offered' tab for \neach course in the course search page. PAM recommends \nworking with either your academic advisor \n(found under advisors on SIS) or the  \n<a href=\"https://community.case.edu/csepeeradvisors/home/\">\nCSE Peer Advisors</a>\nto get help creating a 4 year class plan or simply \nplan your courses for next semester in advance!\n</p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "other"
+          }
+        ]
+      },
+      {
+        "name": "Coop",
+        "version": "7",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "Where is the co-op office",
+          "Can I do a co-op",
+          "How do I start a co-op",
+          "Who can I talk to about a co-op",
+          "Can international students do co-op",
+          "co-op",
+          "coop",
+          "co op",
+          "practicum",
+          "What is the difference between co-op and practicum",
+          "What is a co-op",
+          "What is a practicum",
+          "Do I need to do a co-op",
+          "Why should I do a co-op",
+          "Is a co-op worth it",
+          "Will I graduate late if I do a co-op",
+          "What is a co-op vs a practicum",
+          "How do I get a co-op",
+          "Should I do a co-op",
+          "How do I find a co-op",
+          "Can you explain a co-op",
+          "Where can I find a co-op",
+          "What companies offer co-ops",
+          "Does CWRU help you find a co-op",
+          "Where do I look for a co-op"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nCo-op (for BS) and Practicums (for BA) are \nexperiential learning opportunities that provide \nundergraduates with intensive longer term work experiences. \nYou can find out more information about co-op by \nemailing the director Genine <a href=\"mailto:gma19@case.edu\">gma19@case.edu</a> \nor through this <a href=\"https://engineering.case.edu/coop/\">link</a>.\nIf you are a BA student, you can check out \nthe <a href=\"https://case.edu/postgrad/experiential-education/practicum\">practicum page</a>.\n</p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "career_help"
+          }
+        ]
+      },
+      {
+        "name": "Jobs",
+        "version": "9",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "How can I find a job",
+          "Where can I look for job",
+          "Where can I find employer events",
+          "Where can I sign up for the career fair",
+          "When is the career fair",
+          "Where can I meet employers",
+          "what is handshake",
+          "how can I find handshake",
+          "How do I find a job",
+          "Does CWRU help you find a job",
+          "What employers hire CWRU students",
+          "Where are jobs posted",
+          "How do I begin my job search",
+          "Which employers target CWRU students",
+          "How do I find on campus jobs",
+          "Where do I find summer jobs",
+          "Is there a place where jobs are posted",
+          "Where can I find employers that are actively hiring",
+          "Im looking for a job"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nIf you are looking for employers who are looking to hire \nCWRU students on a full time, part time or intern basis, \nas well as employer events and the career fair sign up you \nmay visit <a href=\"https://cwru.joinhandshake.com/login\">Handshake</a>\nto look for such opportunities and apply to them via \nthe platform.\n</p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "career_help"
+          }
+        ]
+      },
+      {
+        "name": "resources",
+        "version": "5",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "resources",
+          "Resources",
+          "four"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p> I see that you have chosen resources. Please select one of the options below or type return to main menu to go back at anytime </p>\n<p> Academic <br>  Student Services <br>  Testing Accomodations and Administrative Forms <br> Technology </p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "initialize"
+          }
+        ],
+        "outputContexts": [
+          {
+            "turnsToLive": 20,
+            "timeToLiveInSeconds": 86400,
+            "name": "resources"
+          }
+        ]
+      },
+      {
+        "name": "Entrepreneurship",
+        "version": "7",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "Entrepreneurship",
+          "Entrepreneurship resources",
+          "I want to be an entrepreneur",
+          "I want to start my own business",
+          "I want to start my own company",
+          "How can I start my own company",
+          "How can I start my own business",
+          "How can I find investors",
+          "How can I get a patent",
+          "Does CWRU help entrepreneurs",
+          "Is there a club for entrepreneurs",
+          "What resources are available for entrepreneurs",
+          "I want to learn more about entrepreneurship",
+          "How can I get help with a business idea",
+          "I have an idea for a business",
+          "I need help with my business",
+          "How do I start a company",
+          "How do I start a business",
+          "I need help starting a business",
+          "Where can I get help with my business",
+          "Where can I go for entrepreneurship resources",
+          "Where can I go for entrepreneurship tools",
+          "What is the Veale Institute for Entrepreneurship",
+          "What support is available for entrepreneurs",
+          "Are there any entrepreneurship programs"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nIf you are a budding entrepreneur or simply have an idea or\nproduct and want to get started in entrepreneurship, \ncheck out either  \n<a href=\"https://case.edu/thinkbox/\">Thinkbox</a>\nto develop your ideas and find tools and space to work, \nor check out <a href=\"https://case.edu/launchnet/\">LaunchNet</a> for funding and resources. \nWe also have clubs on campus for students like you \n(try the ENTP club!)\n</p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "career_help"
+          }
+        ]
+      },
+      {
+        "name": "otherStudent",
+        "version": "11",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "other student resources",
+          "disability services",
+          "How can I get disability resources",
+          "I need disability resources",
+          "Mental health support",
+          "How can I see a doctor",
+          "How can I see a therapist",
+          "I need mental health support",
+          "How can I get mental health support",
+          "Title nine",
+          "Title IX",
+          "Sexual assault support",
+          "I need sexual assault support",
+          "Report sexual assault",
+          "Equity services",
+          "Office of Equity",
+          "Scholarships",
+          "How can I get a scholarship",
+          "Outside scholarships",
+          "More scholarships",
+          "Am I eligible for a scholarship",
+          "What scholarships can I get",
+          "two",
+          "student services",
+          "LBGT",
+          "LGBTQ",
+          "LGBT resources",
+          "LGBTQ resources",
+          "What resources are available for LGBT students",
+          "Resources for women",
+          "Women's resources",
+          "What resources are available for women",
+          "What support exists for women"
+        ],
+        "slots": [
+          {
+            "sampleUtterances": [],
+            "slotType": "otherStudCategories",
+            "slotTypeVersion": "2",
+            "obfuscationSetting": "DEFAULT_OBFUSCATION",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Which category do you have questions about?"
+                }
+              ],
+              "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"title\":\"Other Student Needs\",\"buttons\":[{\"text\":\"Disability Resources\",\"value\":\"https://case.edu/studentlife/disability/\"},{\"text\":\"Health and Counseling Services\",\"value\":\"https://case.edu/studentlife/healthcounseling/\"},{\"text\":\"Title IX\",\"value\":\"https://case.edu/equity/\"},{\"text\":\"Scholarships\",\"value\":\"(1) https://case.edu/admission/tuition-aid/scholarships (2) https://case.edu/financialaid/resources/outside-scholarships\"},{\"text\":\"Multicultural\",\"value\":\"https://case.edu/studentlife/multicultural/\"}]},{\"title\":\"More Student Resources\",\"buttons\":[{\"text\":\"LGBTQ+\",\"value\":\"https://case.edu/lgbt/\"},{\"text\":\"Women's Resources\",\"value\":\"https://case.edu/centerforwomen/\"}]}]}",
+              "maxAttempts": 2
+            },
+            "priority": 1,
+            "defaultValueSpec": {
+              "defaultValueList": []
+            },
+            "name": "cat"
+          }
+        ],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nExplore this <a href={cat}>link</a> to learn more!\n</p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "resources"
+          }
+        ]
+      },
+      {
+        "name": "course_registration",
+        "version": "11",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "All of the courses that I was planning to take filled up before I was able to register. What should I do",
+          "courses filled up",
+          "no more courses left",
+          "how do I complete my requirements",
+          "what courses should I take",
+          "course is unavailable",
+          "class filled up",
+          "which classes should I take",
+          "class is unavailable",
+          "What do I do if the classes I wanted to take aren't available",
+          "How do I get into a class that's full",
+          "Can I get into a class that's full",
+          "What do I do if all my planned classes are full",
+          "All my classes are full",
+          "My planned classes aren't available",
+          "A class I need to take is full",
+          "What do I do if a class required by my major is full",
+          "Is there any way to get into a class that's full"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nIf the class you're looking for has been filled up, \nyou may try requesting permission from the professor \nvia SIS or email to be added on, or reach out to your \nacademic advisor (under advisors on SIS) or the  \n<a href=\"https://community.case.edu/csepeeradvisors/home/\">CSE \nPeer Advisors</a> \nto help plan an alternate class you can take.\n</p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "eleg_and_req"
+          }
+        ]
+      },
+      {
+        "name": "depth_track_diff",
+        "version": "8",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "what depth track should I choose",
+          "depth areas and career",
+          "Depth areas",
+          "What are the differences between the depth areas and the careers that they lead to",
+          "what depth should i pick",
+          "what track should i go with",
+          "what depth track should i do",
+          "Which depth track is best",
+          "How do I choose a depth",
+          "Do I need to choose a depth",
+          "Which depth should I choose",
+          "How do I pick a depth",
+          "What are my options for a depth track",
+          "What depth tracks can I choose",
+          "What are the depth tracks",
+          "Which depth track should I choose"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\r\nBA Computer Science majors don't pick a depth track, but if you're a\r\nBS CS major you can pick between \r\n<ol>\r\n<li>Software Engineering</li>\r\n<li>Algorithms and Theory</li>\r\n<li>Computer Systems, Networks and Security</li>\r\n<li>Databases and Data Mining</li>\r\n<li>Bioinformatics</li>\r\n<li>Artificial Intelligence</li>\r\n</ol>\r\n</p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "eleg_and_req"
+          }
+        ]
+      },
+      {
+        "name": "is_cs_for_me",
+        "version": "10",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "What would you recommend for people looking to see if computer science is for them",
+          "is cs for me",
+          "is computer science for me",
+          "I don't know if I should do computer science how should I figure it out",
+          "should I major in cs",
+          "should I major in computer science",
+          "Will I do well in CS",
+          "How do I know if I'll do well as a CS major",
+          "How do I know if I want a career in CS",
+          "How do I decide if CS is the right major for me",
+          "Am I going to do well in CS",
+          "How do I know if Im going to do well in CS",
+          "Im not sure if I want to major in CS",
+          "Is CS a good fit for me",
+          "How do I know if CS is a good fit for me"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "{\n    \"type\": \"random\",\n    \"message\": [\"Try taking a few CS classes like Intro to Java and Data Structures to see if you like it!\", \n                \"Talk to your professors and other people you know involved in the major and see what like about what they do to decide if it's for you or not.\", \n                \"Think about what got you into CS in the first place. Is that something that still inspires you? What do you want to do with a CS major? Go into industry? Do research?\"]\n}"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "other"
+          }
+        ]
+      },
+      {
+        "name": "should_i_get_ms_in_cs",
+        "version": "9",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "What are the benefits of getting a masters degree",
+          "What does the BS MS program offer for computer science",
+          "Is it recommended to go straight into industry or get a masters degree in computer science",
+          "should I get a masters",
+          "Do I need a masters in CS",
+          "Do I need a masters in computer science",
+          "Can I get a job without a masters degree",
+          "Can I get a job with a BA in CS",
+          "Can I get a job with a BS in CS",
+          "Should I get a masters or a job",
+          "Do I need a masters degree to get a job",
+          "Why should I get a masters degree"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<div>\n<p>\nA master’s degree in Computer Science provides students \nwith experiential and applied learning in the field. \nThrough this graduate program, you’ll gain a higher-level \nunderstanding of everything you need to succeed in computing \nand information science. Read more \n<a href=\"https://engineering.case.edu/computer-and-data-sciences/academics/computer-science/master-science\">here</a>\n</p>\n\n<p>\nThat being said here are some of the pros and cons of getting\na Masters. \nPros:  If you are interested in continuing with your masters degree in computer science, you'll find better pay, good job outlook, and the opportunity to stand out from other job applicants.\nCons: Earning a masters degree comes with more student debt and more time spend in school.\n</p>\n\n<p>\nCWRU also offers an integrate BS/MS program in which\nyou can earn your bachelors and masters in ony 5 years. You\ncan read more <a href=\"https://engineering.case.edu/academics/integrated-bs-ms\">here</a>\n</p>\n</div>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "other"
+          }
+        ]
+      },
+      {
+        "rejectionStatement": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Okay, search for programs is cancelled."
+            }
+          ]
+        },
+        "name": "studyabroad_Lookup",
+        "version": "9",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "Can I study abroad in {Location}",
+          "Can I study abroad during {Semester}",
+          "Can I study abroad in the {Semester}",
+          "{Location}",
+          "look up programs",
+          "look up study abroad",
+          "look up study abroad programs"
+        ],
+        "slots": [
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.Country",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Which country would you like to study abroad? Please provide the full name! "
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 1,
+            "name": "Location"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "semester",
+            "slotTypeVersion": "2",
+            "obfuscationSetting": "DEFAULT_OBFUSCATION",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "What semester would you like to study abroad? You may choose - Fall, Spring, Spring Break, May Term, Summer, Winter Break 1. Please enter it exactly!"
+                }
+              ],
+              "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[]}",
+              "maxAttempts": 2
+            },
+            "priority": 2,
+            "defaultValueSpec": {
+              "defaultValueList": []
+            },
+            "name": "Semester"
+          }
+        ],
+        "confirmationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "To confirm, you want to study abroad in {Location} during the {Semester} term?"
+            }
+          ],
+          "maxAttempts": 3
+        },
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nTry this <a href=\"https://studyabroad.case.edu/index.cfm?FuseAction=Programs.SearchResults&Program_Name=&Program_Type_ID=1&pi=%7F&pc={Location}%7F&pr=%7F&pt={Semester}%7F&Partner_ID=ANY&p_10035=%7F&p_10035_t=SELCT&p_10019=%7F&p_10019_t=MULTI&p_10024=%7F&p_10024_t=MULTI&Sort=Program_Name&Order=asc&pp=10035%2C10019%2C10024\">link</a> \nto find programs in your country and semester of choice.\n</p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "studyabroad_Lookup"
+          }
+        ]
+      },
+      {
+        "name": "testingAdmin",
+        "version": "3",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "testing",
+          "testing resources",
+          "What testing resources are available",
+          "I need extra time for tests",
+          "I need testing accommodations",
+          "I want to declare my major",
+          "I need to declare my major",
+          "I want to declare a minor",
+          "I need to declare a minor",
+          "Am I in good academic standing",
+          "How do I know if Im in good academic standing",
+          "Academic standing",
+          "Proficiency exams",
+          "Can I skip a class",
+          "How can I skip a class"
+        ],
+        "slots": [
+          {
+            "sampleUtterances": [],
+            "slotType": "testingAdminLinks",
+            "slotTypeVersion": "1",
+            "obfuscationSetting": "DEFAULT_OBFUSCATION",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "What are you looking for?"
+                }
+              ],
+              "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"title\":\"Testing and Administrative Services\",\"buttons\":[{\"text\":\"Testing Accommodations\",\"value\":\"https://case.edu/studentlife/accommodatedtesting/\"},{\"text\":\"Undergraduate Studies\",\"value\":\"https://case.edu/ugstudies/\"}]}]}",
+              "maxAttempts": 2
+            },
+            "priority": 1,
+            "defaultValueSpec": {
+              "defaultValueList": []
+            },
+            "name": "testugs"
+          }
+        ],
+        "inputContexts": [
+          {
+            "name": "resources"
+          }
+        ]
+      },
+      {
+        "name": "how_early_intro_to_ai",
+        "version": "10",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "how early should I take intro to ai",
+          "when should I take intro to artificial intelligence",
+          "I'm doing my depth in AI how early should I take the intro class",
+          "How should I plan my courses if I'm doing my depth in AI",
+          "When should I start taking AI courses",
+          "When should I start taking artificial intelligence classes",
+          "When should I start AI depth courses"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "{\n    \"type\": \"random\",\n    \"message\": [\"Most students usualy take Intro to AI their sophomore or junior year.\", \n                \"Before taking Intro to AI you must take to Intro to Java (or AP CS A) and Intro to Data Structures. After those you can take Intro to AI!\", \n                \"Intro to AI is a requirement for all other AI classes in the AI depth track so take it as early as you can, but don't take too many CS classes at once because it'll be a very stressful semester.\"]\n}"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "eleg_and_req"
+          }
+        ]
+      },
+      {
+        "name": "leadershipForStudents",
+        "version": "9",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "Where can I find opportunities to be a student leader at campus",
+          "Where can I find student leadership at campus",
+          "Where can I find student leadership opportunities at Case Western",
+          "Im looking for student leadership at campus",
+          "Where can I find student leadership opportunities at campus",
+          "Where can I be a student leader at campus",
+          "How can I become a student leader",
+          "What student leadership opportunity exist",
+          "Where do I find leadership opportunities",
+          "leadership opportunity",
+          "student leadership",
+          "leadership"
+        ],
+        "slots": [
+          {
+            "sampleUtterances": [],
+            "slotType": "leadershipSlot",
+            "slotTypeVersion": "1",
+            "obfuscationSetting": "DEFAULT_OBFUSCATION",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "What type of leadership opportunity are you interested in?"
+                }
+              ],
+              "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"imageUrl\":\"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcase.edu%2Fstudentlife%2Factivities%2Fsites%2Fcase.edu.activities%2Ffiles%2Fstyles%2Fsubfeature_705x528_%2Fpublic%2F2020-09%2FDSC_1595.JPG%3Fh%3D028be740%26itok%3D8utzv77O&f=1&nofb=1\",\"subTitle\":\"at CWRU\",\"title\":\"Leadership Opportunities\",\"buttons\":[{\"text\":\"USG\",\"value\":\"https://community.case.edu/usg/elections/\"},{\"text\":\"Orientation Leader\",\"value\":\"https://case.edu/firstyear/about-office/orientation-leaders/orientation-leader-application-process\"},{\"text\":\"Tour Guide\",\"value\":\"https://thedaily.case.edu/apply-to-be-a-tour-guide/\"}]}]}",
+              "maxAttempts": 2
+            },
+            "priority": 1,
+            "defaultValueSpec": {
+              "defaultValueList": []
+            },
+            "name": "slotOne"
+          }
+        ],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nExplore this <a href={slotOne}>link</a> to learn more!\n</p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "student_activities"
+          }
+        ]
+      },
+      {
+        "name": "academic_resources",
+        "version": "3",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "Academic"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nI see that you are looking for academic resources! I can find resources regarding Tutors, Peer Advisors, Textbooks, Coding Bootcamps, English Language Resources and more! Just go ahead and type your question. \n</p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "resources"
+          }
+        ],
+        "outputContexts": [
+          {
+            "turnsToLive": 20,
+            "timeToLiveInSeconds": 86400,
+            "name": "academic_resources"
+          }
+        ]
+      },
+      {
+        "name": "studyAbroad",
+        "version": "23",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "Study Abroad",
+          "Abroad",
+          "How can I study abroad",
+          "Where can I study abroad",
+          "What majors can study abroad",
+          "Who do I talk to about study abroad",
+          "Where is the study abroad office",
+          "Do I need to get permission for study abroad",
+          "Do credits transfer for study abroad",
+          "Can freshmen study abroad",
+          "Will I fall behind if I study abroad",
+          "Can I study abroad and complete my degree in four years",
+          "Can seniors study abroad"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nI see that you want to learn more about Study Abroad! For all study abroad related enquiries please check the website \n<a href=\"https://engineering.case.edu/outside-classroom/global-opportunities\">here</a>\nor visit their office in Tomlinson! You can prepare your plan \nto combine a study abroad opportunity with your degree \nprogram here at Case Western through help from the \nPeer Advising office <a href=\"https://community.case.edu/csepeeradvisors/home/\">here</a>\nor by discussing it with your academic advisor\n(found under the advisors tab on your SIS). \n</p>\n<p>\nIf you are alread aware of which semester and country you want to study aborad in, you can look up available programs by typing look up available study abroad programs\n</p>\n"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "undergrad_experiences"
+          }
+        ],
+        "outputContexts": [
+          {
+            "turnsToLive": 10,
+            "timeToLiveInSeconds": 600,
+            "name": "studyabroad_Lookup"
+          }
+        ]
+      },
+      {
+        "name": "resAcWriting",
+        "version": "7",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "writing help",
+          "essay writing help",
+          "essay help",
+          "writing center",
+          "writing resources",
+          "writing tutor",
+          "essay editing help",
+          "Who can I ask for help with my essay",
+          "I need help with my SAGES essay",
+          "I need help with my writing",
+          "How can I get help with my paper",
+          "How can I get help with my writing",
+          "How can I get help with my essay",
+          "What writing resources are available",
+          "Can someone help me review my essay",
+          "Can someone review my essay",
+          "What can I do to improve my writing",
+          "How can I improve my writing",
+          "Where can I find writing resources",
+          "Where is the writing resource center",
+          "Can I get a writing tutor",
+          "I need help with my essay",
+          "Can someone edit my essay",
+          "Where can I get writing help",
+          "Where can I get help with my essay",
+          "Are there writing resources available",
+          "Are there essay writing resources available",
+          "Can I get help with writing my essay"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nYou can get help with your writing at the writing resource \ncenter \n<a href=\"https://case.edu/artsci/writing/resources/writing-center\">here</a>.\n</p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "academic_resources"
+          }
+        ]
+      },
+      {
+        "name": "approveTechnicalelectives",
+        "version": "21",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "How can I get my technical electives approved",
+          "Is there a form that I can fill up to get my technical electives approved",
+          "Can I use a different class to satisfy my technical elective requirement",
+          "How do I use a different class to meet my technical elective requirement",
+          "course substitution form",
+          "substitution",
+          "substitution form"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>Fill out the <a href=\"https://case.edu/ugstudies/forms/\"> \n    Academic Advisement Report Substitution Form </a> \n    and send it to your advisor</p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "eleg_and_req"
+          }
+        ]
+      },
+      {
+        "name": "resAcTextbooks",
+        "version": "7",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "textbooks",
+          "buy textbooks",
+          "Where can I buy textbooks",
+          "Where can I buy my textbooks",
+          "How do I find textbooks",
+          "Can I buy my textbooks on campus",
+          "Where do I buy textbooks",
+          "Is there a place to buy textbooks on campus"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nYou can purchase textbooks on campus at the campus bookstore \n<a href=\"http://case.bncollege.com/webapp/wcs/stores/servlet/BNCBHomePage?storeId=16053&catalogId=10001&langId=-1\">here</a>\nor source your textbooks elsewhere online.\n</p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "academic_resources"
+          }
+        ]
+      },
+      {
+        "name": "hello",
+        "version": "10",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "Hi",
+          "Hello",
+          "Hey",
+          "Hello Pam",
+          "Hey Pam",
+          "Hi Pam",
+          "return to main menu",
+          "main menu",
+          "menu"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p> Hello! I am PAM, the Peer Advisor Messenger AI Chatbot. I can find the right resources and answer some of your questions. </p>\n<p> To begin, please select one of the topics below. You may type the topic heading or select the correct number; <br> 1) Course Elgibility and Requirements <br> 2) Adding to you Undergraduate Experience <br> 3) Career Help <br> 4) All Resources <br> 5) Other </p>\n"
+            }
+          ]
+        },
+        "inputContexts": [],
+        "outputContexts": [
+          {
+            "turnsToLive": 20,
+            "timeToLiveInSeconds": 86400,
+            "name": "initialize"
+          }
+        ]
+      },
+      {
+        "name": "career_help",
+        "version": "5",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "three",
+          "Career Help"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nI see that you are looking for career related resources! I can find resources regarding Co-ops, Internships, Jobs, Post Graduate Planning, Alumni and more! Just go ahead and type your question. \n</p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "initialize"
+          }
+        ],
+        "outputContexts": [
+          {
+            "turnsToLive": 20,
+            "timeToLiveInSeconds": 86400,
+            "name": "career_help"
+          }
+        ]
+      },
+      {
+        "name": "internship",
+        "version": "5",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "I need help finding internships",
+          "Where can I find an internship",
+          "When can I do internships",
+          "Im looking for internships",
+          "when should I start looking for internships",
+          "how do I get internships",
+          "where do I find an internship",
+          "How do I find internships",
+          "can freshmen do an internship",
+          "can international students do an internship",
+          "can someone look over my resume",
+          "when should I apply for internships",
+          "who can I talk to about my internships",
+          "when should I do internships",
+          "how can I get internships",
+          "internships"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "CustomPayload",
+              "content": "<p>\nPlease check out the internship homepage for all \ninformation about internships \n<a href=\"https://case.edu/postgrad/experiential-education/internships\">\nhere</a>.\n</p>"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "career_help"
+          }
+        ]
+      }
+    ],
+    "slotTypes": [
+      {
+        "name": "otherStudCategories",
+        "version": "2",
+        "enumerationValues": [
+          {
+            "value": "(1) https://case.edu/admission/tuition-aid/scholarships (2) https://case.edu/financialaid/resources/outside-scholarships"
+          },
+          {
+            "value": "https://case.edu/equity/"
+          },
+          {
+            "value": "https://case.edu/studentlife/multicultural/"
+          },
+          {
+            "value": "https://case.edu/studentlife/disability/"
+          },
+          {
+            "value": "https://case.edu/centerforwomen/"
+          },
+          {
+            "value": "https://case.edu/lgbt/"
+          },
+          {
+            "value": "https://case.edu/studentlife/healthcounseling/"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      },
+      {
+        "description": "college semesters",
+        "name": "semester",
+        "version": "2",
+        "enumerationValues": [
+          {
+            "value": "Winter Break 1",
+            "synonyms": [
+              "winter",
+              "winter break",
+              "christmas"
+            ]
+          },
+          {
+            "value": "Summer",
+            "synonyms": [
+              "summer",
+              "summer break"
+            ]
+          },
+          {
+            "value": "Fall",
+            "synonyms": [
+              "fall",
+              "fall break",
+              "thanksgiving"
+            ]
+          },
+          {
+            "value": "May Term",
+            "synonyms": [
+              "May"
+            ]
+          },
+          {
+            "value": "Spring"
+          },
+          {
+            "value": "Spring Break"
+          }
+        ],
+        "valueSelectionStrategy": "TOP_RESOLUTION"
+      },
+      {
+        "name": "testingAdminLinks",
+        "version": "1",
+        "enumerationValues": [
+          {
+            "value": "https://case.edu/ugstudies/"
+          },
+          {
+            "value": "https://case.edu/studentlife/accommodatedtesting/"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      },
+      {
+        "description": "opportunities for leadership at CWRU",
+        "name": "leadershipSlot",
+        "version": "1",
+        "enumerationValues": [
+          {
+            "value": "https://community.case.edu/usg/elections/"
+          },
+          {
+            "value": "https://thedaily.case.edu/apply-to-be-a-tour-guide/"
+          },
+          {
+            "value": "https://case.edu/firstyear/about-office/orientation-leaders/orientation-leader-application-process"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      },
+      {
+        "name": "freeTech",
+        "version": "1",
+        "enumerationValues": [
+          {
+            "value": "https://softwarecenter.case.edu/eula.php"
+          },
+          {
+            "value": "myapps.case.edu"
+          },
+          {
+            "value": "https://case.edu/utech/"
+          },
+          {
+            "value": "https://bulletin.case.edu/schoolofengineering/compdatasci/#facilitiestext"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      }
+    ],
+    "voiceId": "Salli",
+    "childDirected": false,
+    "locale": "en-US",
+    "idleSessionTTLInSeconds": 600,
+    "description": "Testbot for CSDS395 Senior Project",
+    "clarificationPrompt": {
+      "messages": [
+        {
+          "contentType": "PlainText",
+          "content": "Sorry but I didn't understand you, please repeat your question with different key words to prompt a response."
+        }
+      ],
+      "maxAttempts": 2
+    },
+    "abortStatement": {
+      "messages": [
+        {
+          "contentType": "PlainText",
+          "content": "Sorry, it seems that I am unable to help with you question at this time. A different resource you may use is your navigator who can point you in the right direction or help connect you to offices on campus that can help with your questions. You can find the name of your navigator under the advisors tab on SIS or sign up with an undedicated one here - https://case.edu/studentsuccess/navigators/drop-hours"
+        }
+      ]
+    },
+    "detectSentiment": true,
+    "nluIntentConfidenceThreshold": 0.3,
+    "enableModelImprovements": true
+  }
+}
