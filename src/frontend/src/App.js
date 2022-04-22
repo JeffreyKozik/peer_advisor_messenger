@@ -19,7 +19,7 @@ function App() {
         backgroundColor="#FFFFFF"
         region="us-east-1"
         headerText="Chat With Pam"
-        headerStyle={{ backgroundColor: "#0a304e", fontSize: "25px" }}
+        headerStyle={{ backgroundColor: "#0a304e", fontSize: "25px", position: "-webkit-sticky", position: "sticky", top: "0",  }}
         greeting={
           'Hello. I am pam, the peer advisor messenger AI chatbot. Click one of the FAQs to ask that question, or click "Menu" to be given question categories to choose from.'
         }

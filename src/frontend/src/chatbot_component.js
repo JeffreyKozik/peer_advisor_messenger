@@ -487,7 +487,7 @@ class MyLexChat extends React.Component {
     const defaultHeaderRectStyle = {
       backgroundColor: "#000000",
       width: "100%",
-      height: "8vh",
+      height: "5vh",
       textAlign: "center",
       paddingTop: 12,
       paddingBottom: 12,
@@ -523,7 +523,9 @@ class MyLexChat extends React.Component {
       marginBottom: "1%",
       marginLeft: this.props.margin,
       marginRight: this.props.margin,
-      resize: "both"
+      resize: "both",
+      overflow: "auto",
+      position: "static"
     }
     return (
       <div id="chatwrapper" style = {chatwrapperStyle}>

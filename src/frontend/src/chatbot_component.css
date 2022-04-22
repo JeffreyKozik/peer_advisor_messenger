@@ -70,7 +70,7 @@ input::placeholder {
     height: 100vw;
   }
   .open {
-    height: 100vw;
+    /* height: 100%; */
   }
 
   /* #chatwrapper {
