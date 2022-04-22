@@ -13,7 +13,7 @@ function App() {
 
       <MyLexChat
         botName="WebUiOrderFlowers"
-        alias="optionalMenu"
+        alias="production"
         IdentityPoolId="us-east-1:708a563d-f972-4cf0-bf91-53f7d1286a5a"
         placeholder="Ask any question about CWRU..."
         backgroundColor="#FFFFFF"

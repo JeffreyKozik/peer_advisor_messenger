@@ -20,7 +20,51 @@ class MyLexChat extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
-
+  // quickQBackground(){
+  //   let thisAlias = this.props.alias;
+  //   let thisBotName = this.props.botName;
+  //   let thisLexUserId = this.state.lexUserId;
+  //   let thisSessionAttributes = this.state.sessionAttributes;
+  //   let thisDebugMode = this.props.debugMode;
+  //   let myThis = this;
+  //
+  //     var inputField = "Quick Question";
+  //
+  //     // send it to the Lex runtime
+  //     var params = {
+  //       botAlias: thisAlias,
+  //       botName: thisBotName,
+  //       inputText: inputField,
+  //       userId: thisLexUserId,
+  //       sessionAttributes: thisSessionAttributes,
+  //     };
+  //
+  //     if (thisDebugMode === true) {
+  //       console.log(JSON.stringify(params));
+  //     }
+  //
+  //     myThis.showRequest(inputField);
+  //     var a = function (err, data) {
+  //       if (err) {
+  //         console.log(err, err.stack);
+  //         myThis.showError(
+  //           "Error:  " + err.message + " (see console for details)"
+  //         );
+  //       }
+  //       if (data) {
+  //         // capture the sessionAttributes for the next cycle
+  //         myThis.setState({ sessionAttributes: data.sessionAttributes });
+  //         // show response and/or error/dialog status
+  //         myThis.showResponse(data);
+  //       }
+  //     };
+  //     myThis.lexruntime.postText(params, a.bind(this));
+  //     let inputFieldDOM = document.getElementById("inputField");
+  //     inputFieldDOM.innerHTML = "";
+  //     myThis.state.data = "";
+  //   });
+  //
+  // }
   componentDidMount() {
     document.getElementById("inputField").focus();
 
@@ -36,80 +80,80 @@ class MyLexChat extends React.Component {
     faqNodeConvoSpacer.style.display = "flex";
     faqNodeConvoSpacer.style.justifyContent = "space-evenly";
 
-    // let quickQuestionDiv = document.createElement("div");
-    // quickQuestionDiv.style.width = "33%";
-    // let quickQuestionButton = document.createElement("button");
-    // quickQuestionButton.innerHTML = "Quick Question";
-    // quickQuestionButton.style.fontSize = "16px";
-    // quickQuestionDiv.appendChild(quickQuestionButton);
-    // faqNodeConvoSpacer.appendChild(quickQuestionDiv);
-    // let thisAlias = this.props.alias;
-    // let thisBotName = this.props.botName;
-    // let thisLexUserId = this.state.lexUserId;
-    // let thisSessionAttributes = this.state.sessionAttributes;
-    // let thisDebugMode = this.props.debugMode;
-    // let myThis = this;
-    // // let qqMessageDiv = document.createElement("div");
-    // quickQuestionButton.addEventListener("click",function(){
-    //   var inputField = "question";
-
-    //   // send it to the Lex runtime
-    //   var params = {
-    //     botAlias: thisAlias,
-    //     botName: thisBotName,
-    //     inputText: inputField,
-    //     userId: thisLexUserId,
-    //     sessionAttributes: thisSessionAttributes,
-    //   };
-
-    //   if (thisDebugMode === true) {
-    //     console.log(JSON.stringify(params));
-    //   }
-
-    //   myThis.showRequest(inputField);
-    //   var a = function (err, data) {
-    //     if (err) {
-    //       console.log(err, err.stack);
-    //       myThis.showError(
-    //         "Error:  " + err.message + " (see console for details)"
-    //       );
-    //     }
-    //     if (data) {
-    //       // capture the sessionAttributes for the next cycle
-    //       myThis.setState({ sessionAttributes: data.sessionAttributes });
-    //       // show response and/or error/dialog status
-    //       myThis.showResponse(data);
-    //     }
-    //   };
-
-    //   myThis.lexruntime.postText(params, a.bind(this));
-    //   let inputFieldDOM = document.getElementById("inputField");
-    //   inputFieldDOM.innerHTML = "";
-    //   myThis.state.data = "";
-    // });
-
-    let faqNode = document.createElement("ul");
-    faqNode.style.display = "inline-block";
-    faqNode.style.width = "50%";
-    document.getElementById("conversation").style.textAlign = "center";
-    this.greetingMsgRef.current = faqNode;
-    faqNode.className = "lexResponse";
-    faqNodeConvoSpacer.appendChild(faqNode);
-
-    let menuDiv = document.createElement("div");
-    menuDiv.style.width = "50%";
-    let menuButton = document.createElement("button");
-    menuButton.innerHTML = "Menu";
-    menuButton.style.fontSize = "16px";
-    menuDiv.appendChild(menuButton);
-    faqNodeConvoSpacer.appendChild(menuDiv);
-
+    let quickQuestionDiv = document.createElement("div");
+    quickQuestionDiv.style.width = "33%";
+    let quickQuestionButton = document.createElement("button");
+    quickQuestionButton.innerHTML = "Quick Question";
+    quickQuestionButton.style.fontSize = "16px";
+    quickQuestionDiv.appendChild(quickQuestionButton);
+    faqNodeConvoSpacer.appendChild(quickQuestionDiv);
     let thisAlias = this.props.alias;
     let thisBotName = this.props.botName;
     let thisLexUserId = this.state.lexUserId;
     let thisSessionAttributes = this.state.sessionAttributes;
     let thisDebugMode = this.props.debugMode;
     let myThis = this;
+    // let qqMessageDiv = document.createElement("div");
+    quickQuestionButton.addEventListener("click",function(){
+      var inputField = "Quick Question";
+
+      // send it to the Lex runtime
+      var params = {
+        botAlias: thisAlias,
+        botName: thisBotName,
+        inputText: inputField,
+        userId: thisLexUserId,
+        sessionAttributes: thisSessionAttributes,
+      };
+
+      if (thisDebugMode === true) {
+        console.log(JSON.stringify(params));
+      }
+
+      myThis.showRequest(inputField);
+      var a = function (err, data) {
+        if (err) {
+          console.log(err, err.stack);
+          myThis.showError(
+            "Error:  " + err.message + " (see console for details)"
+          );
+        }
+        if (data) {
+          // capture the sessionAttributes for the next cycle
+          myThis.setState({ sessionAttributes: data.sessionAttributes });
+          // show response and/or error/dialog status
+          myThis.showResponse(data);
+        }
+      };
+
+      myThis.lexruntime.postText(params, a.bind(this));
+      let inputFieldDOM = document.getElementById("inputField");
+      inputFieldDOM.innerHTML = "";
+      myThis.state.data = "";
+    });
+
+    let faqNode = document.createElement("ul");
+    faqNode.style.display = "inline-block";
+    faqNode.style.width = "33%";
+    document.getElementById("conversation").style.textAlign = "center";
+    this.greetingMsgRef.current = faqNode;
+    faqNode.className = "lexResponse";
+    faqNodeConvoSpacer.appendChild(faqNode);
+
+    let menuDiv = document.createElement("div");
+    menuDiv.style.width = "33%";
+    let menuButton = document.createElement("button");
+    menuButton.innerHTML = "Menu";
+    menuButton.style.fontSize = "16px";
+    menuDiv.appendChild(menuButton);
+    faqNodeConvoSpacer.appendChild(menuDiv);
+
+    thisAlias = this.props.alias;
+    thisBotName = this.props.botName;
+    thisLexUserId = this.state.lexUserId;
+    thisSessionAttributes = this.state.sessionAttributes;
+    thisDebugMode = this.props.debugMode;
+    myThis = this;
     menuButton.addEventListener("click",function(){
       var inputField = "menu";
 
