@@ -20,51 +20,59 @@ class MyLexChat extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
-  // quickQBackground(){
-  //   let thisAlias = this.props.alias;
-  //   let thisBotName = this.props.botName;
-  //   let thisLexUserId = this.state.lexUserId;
-  //   let thisSessionAttributes = this.state.sessionAttributes;
-  //   let thisDebugMode = this.props.debugMode;
-  //   let myThis = this;
-  //
-  //     var inputField = "Quick Question";
-  //
-  //     // send it to the Lex runtime
-  //     var params = {
-  //       botAlias: thisAlias,
-  //       botName: thisBotName,
-  //       inputText: inputField,
-  //       userId: thisLexUserId,
-  //       sessionAttributes: thisSessionAttributes,
-  //     };
-  //
-  //     if (thisDebugMode === true) {
-  //       console.log(JSON.stringify(params));
-  //     }
-  //
-  //     myThis.showRequest(inputField);
-  //     var a = function (err, data) {
-  //       if (err) {
-  //         console.log(err, err.stack);
-  //         myThis.showError(
-  //           "Error:  " + err.message + " (see console for details)"
-  //         );
-  //       }
-  //       if (data) {
-  //         // capture the sessionAttributes for the next cycle
-  //         myThis.setState({ sessionAttributes: data.sessionAttributes });
-  //         // show response and/or error/dialog status
-  //         myThis.showResponse(data);
-  //       }
-  //     };
-  //     myThis.lexruntime.postText(params, a.bind(this));
-  //     let inputFieldDOM = document.getElementById("inputField");
-  //     inputFieldDOM.innerHTML = "";
-  //     myThis.state.data = "";
-  //   });
-  //
-  // }
+  //show means it displays the quick question text
+  buttonMessage(show,message){
+    console.log("in quick question");
+    let thisAlias = this.props.alias;
+    let thisBotName = this.props.botName;
+    let thisLexUserId = this.state.lexUserId;
+    let thisSessionAttributes = this.state.sessionAttributes;
+    let thisDebugMode = this.props.debugMode;
+    let myThis = this;
+
+      var inputField = message;
+
+      // send it to the Lex runtime
+      var params = {
+        botAlias: thisAlias,
+        botName: thisBotName,
+        inputText: inputField,
+        userId: thisLexUserId,
+        sessionAttributes: thisSessionAttributes,
+      };
+
+      if (thisDebugMode === true) {
+        console.log(JSON.stringify(params));
+      }
+      if(show){
+        myThis.showRequest(inputField);
+      }
+      var a = function (err, data) {
+        if (err) {
+          console.log(err, err.stack);
+          myThis.showError(
+            "Error:  " + err.message + " (see console for details)"
+          );
+        }
+        if (data) {
+
+          // capture the sessionAttributes for the next cycle
+          myThis.setState({ sessionAttributes: data.sessionAttributes });
+          // show response and/or error/dialog status
+          if(show){
+            //displace message
+          myThis.showResponse(data);
+        }
+      }
+      };
+      //send lex the message
+      myThis.lexruntime.postText(params, a.bind(this));
+
+      let inputFieldDOM = document.getElementById("inputField");
+      inputFieldDOM.innerHTML = "";
+      myThis.state.data = "";
+      return true;
+  }
   componentDidMount() {
     document.getElementById("inputField").focus();
 
@@ -87,49 +95,10 @@ class MyLexChat extends React.Component {
     quickQuestionButton.style.fontSize = "16px";
     quickQuestionDiv.appendChild(quickQuestionButton);
     faqNodeConvoSpacer.appendChild(quickQuestionDiv);
-    let thisAlias = this.props.alias;
-    let thisBotName = this.props.botName;
-    let thisLexUserId = this.state.lexUserId;
-    let thisSessionAttributes = this.state.sessionAttributes;
-    let thisDebugMode = this.props.debugMode;
-    let myThis = this;
+    let objectThis = this;
     // let qqMessageDiv = document.createElement("div");
     quickQuestionButton.addEventListener("click",function(){
-      var inputField = "Quick Question";
-
-      // send it to the Lex runtime
-      var params = {
-        botAlias: thisAlias,
-        botName: thisBotName,
-        inputText: inputField,
-        userId: thisLexUserId,
-        sessionAttributes: thisSessionAttributes,
-      };
-
-      if (thisDebugMode === true) {
-        console.log(JSON.stringify(params));
-      }
-
-      myThis.showRequest(inputField);
-      var a = function (err, data) {
-        if (err) {
-          console.log(err, err.stack);
-          myThis.showError(
-            "Error:  " + err.message + " (see console for details)"
-          );
-        }
-        if (data) {
-          // capture the sessionAttributes for the next cycle
-          myThis.setState({ sessionAttributes: data.sessionAttributes });
-          // show response and/or error/dialog status
-          myThis.showResponse(data);
-        }
-      };
-
-      myThis.lexruntime.postText(params, a.bind(this));
-      let inputFieldDOM = document.getElementById("inputField");
-      inputFieldDOM.innerHTML = "";
-      myThis.state.data = "";
+      objectThis.buttonMessage(true,"Quick Question");
     });
 
     let faqNode = document.createElement("ul");
@@ -148,48 +117,8 @@ class MyLexChat extends React.Component {
     menuDiv.appendChild(menuButton);
     faqNodeConvoSpacer.appendChild(menuDiv);
 
-    thisAlias = this.props.alias;
-    thisBotName = this.props.botName;
-    thisLexUserId = this.state.lexUserId;
-    thisSessionAttributes = this.state.sessionAttributes;
-    thisDebugMode = this.props.debugMode;
-    myThis = this;
     menuButton.addEventListener("click",function(){
-      var inputField = "menu";
-
-      // send it to the Lex runtime
-      var params = {
-        botAlias: thisAlias,
-        botName: thisBotName,
-        inputText: inputField,
-        userId: thisLexUserId,
-        sessionAttributes: thisSessionAttributes,
-      };
-
-      if (thisDebugMode === true) {
-        console.log(JSON.stringify(params));
-      }
-
-      myThis.showRequest(inputField);
-      var a = function (err, data) {
-        if (err) {
-          console.log(err, err.stack);
-          myThis.showError(
-            "Error:  " + err.message + " (see console for details)"
-          );
-        }
-        if (data) {
-          // capture the sessionAttributes for the next cycle
-          myThis.setState({ sessionAttributes: data.sessionAttributes });
-          // show response and/or error/dialog status
-          myThis.showResponse(data);
-        }
-      };
-
-      myThis.lexruntime.postText(params, a.bind(this));
-      let inputFieldDOM = document.getElementById("inputField");
-      inputFieldDOM.innerHTML = "";
-      myThis.state.data = "";
+    objectThis.buttonMessage(true,"Menu");
     });
 
     let title = "Frequently Asked Questions";
@@ -213,42 +142,12 @@ class MyLexChat extends React.Component {
       let thisSessionAttributes = this.state.sessionAttributes;
       let thisDebugMode = this.props.debugMode;
       let myThis = this;
-      responseButtons.addEventListener("click",function(){
-          var inputField = responseButtons.value;
 
-            // send it to the Lex runtime
-            var params = {
-              botAlias: thisAlias,
-              botName: thisBotName,
-              inputText: inputField,
-              userId: thisLexUserId,
-              sessionAttributes: thisSessionAttributes,
-            };
-
-            if (thisDebugMode === true) {
-              console.log(JSON.stringify(params));
-            }
-
-            myThis.showRequest(inputField);
-            var a = function (err, data) {
-              if (err) {
-                console.log(err, err.stack);
-                myThis.showError(
-                  "Error:  " + err.message + " (see console for details)"
-                );
-              }
-              if (data) {
-                // capture the sessionAttributes for the next cycle
-                myThis.setState({ sessionAttributes: data.sessionAttributes });
-                // show response and/or error/dialog status
-                myThis.showResponse(data);
-              }
-            };
-
-            myThis.lexruntime.postText(params, a.bind(this));
-            let inputFieldDOM = document.getElementById("inputField");
-            inputFieldDOM.innerHTML = "";
-            myThis.state.data = "";
+      let objectThis = this;
+      // let qqMessageDiv = document.createElement("div");
+      responseButtons.addEventListener("click",async function(){
+          await objectThis.buttonMessage(false,"Quick Question");
+          objectThis.buttonMessage(true,responseButtons.value);
       });
       responseButtonDiv.appendChild(responseButtons);
       responseButtonDiv.style.textAlign = "center";
