@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import merge from "lodash/merge";
 import AWS from "aws-sdk";
+import axios from "axios";
 import "./chatbot_component.css";
 
 class MyLexChat extends React.Component {
@@ -91,6 +92,7 @@ class MyLexChat extends React.Component {
     let quickQuestionDiv = document.createElement("div");
     quickQuestionDiv.style.width = "33%";
     let quickQuestionButton = document.createElement("button");
+    quickQuestionButton.id = "quickQuestion";
     quickQuestionButton.innerHTML = "Quick Question";
     quickQuestionButton.style.fontSize = "16px";
     quickQuestionDiv.appendChild(quickQuestionButton);
@@ -112,6 +114,7 @@ class MyLexChat extends React.Component {
     let menuDiv = document.createElement("div");
     menuDiv.style.width = "33%";
     let menuButton = document.createElement("button");
+    menuButton.id = "menuButton";
     menuButton.innerHTML = "Menu";
     menuButton.style.fontSize = "16px";
     menuDiv.appendChild(menuButton);
@@ -274,22 +277,10 @@ class MyLexChat extends React.Component {
   }
 
   showResponse(lexResponse) {
-    // let lexmodelbuildingservice = new AWS.LexModelBuildingService();
-    // let params = {
-    //   maxResults: 1000000,
-    //   nextToken: ""
-    // }
-    // lexmodelbuildingservice.getIntents(params, function(err,data){
-    //   if (err) { console.log(err, err.stack);}
-    //   else {
-    //     console.log("data: " + data);
-    //     console.log("data: " + JSON.stringify(data));
-    //   }
-    // })
-    console.log("lexResponse: " + JSON.stringify(lexResponse));
     var conversationDiv = document.getElementById("conversation");
     var responsePara = document.createElement("P");
     responsePara.className = "lexResponse";
+    console.log("lexResponse: " + JSON.stringify(lexResponse));
     if (lexResponse.message) {
       console.log("lexResponse.message: " + JSON.stringify(lexResponse.message));
       try{
@@ -355,7 +346,9 @@ class MyLexChat extends React.Component {
           responseCardImg.src = imageUrl;
           responseCardImg.style.maxHeight = "20vh";
           responseCardImg.style.maxWidth = "20vw";
-          responseCardDiv.appendChild(responseCardImg);
+          if(imageUrl != null){
+            responseCardDiv.appendChild(responseCardImg);
+          }
           let titleDiv = document.createElement("div");
           titleDiv.innerHTML = title;
           titleDiv.style.fontWeight = "bold";
