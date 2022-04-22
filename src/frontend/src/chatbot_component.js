@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import merge from "lodash/merge";
 import AWS from "aws-sdk";
-import axios from "axios";
 import "./chatbot_component.css";
 
 class MyLexChat extends React.Component {
@@ -22,7 +21,7 @@ class MyLexChat extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
   //show means it displays the quick question text
-  buttonMessage(show,message){
+  buttonMessage(show,message,displayText){
     console.log("in quick question");
     let thisAlias = this.props.alias;
     let thisBotName = this.props.botName;
@@ -46,7 +45,7 @@ class MyLexChat extends React.Component {
         console.log(JSON.stringify(params));
       }
       if(show){
-        myThis.showRequest(inputField);
+        myThis.showRequest(displayText);
       }
       var a = function (err, data) {
         if (err) {
@@ -100,7 +99,7 @@ class MyLexChat extends React.Component {
     let objectThis = this;
     // let qqMessageDiv = document.createElement("div");
     quickQuestionButton.addEventListener("click",function(){
-      objectThis.buttonMessage(true,"Quick Question");
+      objectThis.buttonMessage(true,"Quick Question","Quick Question");
     });
 
     let faqNode = document.createElement("ul");
@@ -121,7 +120,7 @@ class MyLexChat extends React.Component {
     faqNodeConvoSpacer.appendChild(menuDiv);
 
     menuButton.addEventListener("click",function(){
-    objectThis.buttonMessage(true,"Menu");
+    objectThis.buttonMessage(true,"Menu","Menu");
     });
 
     let title = "Frequently Asked Questions";
@@ -149,8 +148,8 @@ class MyLexChat extends React.Component {
       let objectThis = this;
       // let qqMessageDiv = document.createElement("div");
       responseButtons.addEventListener("click",async function(){
-          await objectThis.buttonMessage(false,"Quick Question");
-          objectThis.buttonMessage(true,responseButtons.value);
+          await objectThis.buttonMessage(false,"Quick Question","Quick Question");
+          objectThis.buttonMessage(true,responseButtons.value, responseButtons.value);
       });
       responseButtonDiv.appendChild(responseButtons);
       responseButtonDiv.style.textAlign = "center";
@@ -362,48 +361,10 @@ class MyLexChat extends React.Component {
             let responseButtons = document.createElement("button");
             responseButtons.innerHTML = buttons[i].text;
             responseButtons.value = buttons[i].value;
-            let thisAlias = this.props.alias;
-            let thisBotName = this.props.botName;
-            let thisLexUserId = this.state.lexUserId;
-            let thisSessionAttributes = this.state.sessionAttributes;
-            let thisDebugMode = this.props.debugMode;
-            let myThis = this;
+            let objectThis = this;
+
             responseButtons.addEventListener("click",function(){
-                var inputField = responseButtons.value;
-
-                  // send it to the Lex runtime
-                  var params = {
-                    botAlias: thisAlias,
-                    botName: thisBotName,
-                    inputText: inputField,
-                    userId: thisLexUserId,
-                    sessionAttributes: thisSessionAttributes,
-                  };
-
-                  if (thisDebugMode === true) {
-                    console.log(JSON.stringify(params));
-                  }
-
-                  myThis.showRequest(inputField);
-                  var a = function (err, data) {
-                    if (err) {
-                      console.log(err, err.stack);
-                      myThis.showError(
-                        "Error:  " + err.message + " (see console for details)"
-                      );
-                    }
-                    if (data) {
-                      // capture the sessionAttributes for the next cycle
-                      myThis.setState({ sessionAttributes: data.sessionAttributes });
-                      // show response and/or error/dialog status
-                      myThis.showResponse(data);
-                    }
-                  };
-
-                  myThis.lexruntime.postText(params, a.bind(this));
-                  let inputFieldDOM = document.getElementById("inputField");
-                  inputFieldDOM.innerHTML = "";
-                  myThis.state.data = "";
+              objectThis.buttonMessage(true, responseButtons.value, responseButtons.innerHTML);
             });
             responseButtonDiv.appendChild(responseButtons);
             responseButtonDiv.style.textAlign = "center";
@@ -420,6 +381,12 @@ class MyLexChat extends React.Component {
       responsePara.appendChild(
         document.createTextNode("Ready for fulfillment")
       );
+    }
+    //open embedded link in a new tab
+    let linkArray = responsePara.getElementsByTagName("a");
+    for (let i = 0; i < linkArray.length; i++){
+      linkArray[i].setAttribute("target","_blank");
+      linkArray[i].setAttribute("rel", "noopener noreferrer");
     }
     var spacer = document.createElement("div");
     spacer.className = "convoSpacer";

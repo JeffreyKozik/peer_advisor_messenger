@@ -6,16 +6,18 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.service import Service
 
 waiting_time = 1000
 options = Options()
-driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
 driver.get("http://localhost:3000/")
 
 # click on "quick question button"
 quickQuestionButton = WebDriverWait(driver, waiting_time).until(
     EC.element_to_be_clickable((By.ID, 'quickQuestion')))
+print("quick")
 num_responses = len(driver.find_elements_by_class_name("lexResponse"))
 print(num_responses)
 quickQuestionButton.click()
@@ -31,8 +33,8 @@ def sendQuestion(user_request):
             return new_num_responses
             break
 
-# AFTER 20 need to ask QUICK QUESTION AGAIN!!!!
-user_request_list = ["How do I network with cwru alumni", 
+# AFTER 20 need to ask QUICK QUESTION AGAIN!!!
+user_request_list = ["How do I network with cwru alumni",
                      "How can I get my technical electives approved",
                      "How can I plan my classes for future semester",
                      "Where do I look for a co-op",
@@ -51,6 +53,7 @@ user_request_list = ["How do I network with cwru alumni",
                      "What resources are available for women",
                      "Who can I ask for advice from the student perspective",
                      "Does CWRU offer career services",
+                     "Quick Question",
                      "Can I be a CS major if I don't know how to code",
                      "Does CWRU have english learning resources",
                      "Where do I buy textbooks",
