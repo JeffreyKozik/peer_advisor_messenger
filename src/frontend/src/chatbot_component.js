@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import merge from "lodash/merge";
 import AWS from "aws-sdk";
+import axios from "axios";
 import "./chatbot_component.css";
 
 class MyLexChat extends React.Component {
@@ -276,6 +277,10 @@ class MyLexChat extends React.Component {
   }
 
   showResponse(lexResponse) {
+    axios.get("https://desolate-mountain-77457.herokuapp.com/https://cse.google.com/cse/element/v1?rsz=filtered_cse&num=10&hl=en&source=gcsc&gss=.com&cselibv=3e1664f444e6eb06&cx=004305171799132815236:ciq4c8b3yv4&q=testing&safe=off&cse_tok=AJvRUv1K0BYXuxBIUJsAUFWk07BU:1650672845036&sort=&exp=csqr,cc&oq=testing&gs_l=partner-generic.3...0.0.0.11460.0.0.0.0.0.0.0.0..0.0.csems%2Cnrl%3D13...0.0....34.partner-generic..0.0.0.&callback=google.search.cse.api5565")
+    .then(function (response) {
+      console.log(response);
+    })
     var conversationDiv = document.getElementById("conversation");
     var responsePara = document.createElement("P");
     responsePara.className = "lexResponse";

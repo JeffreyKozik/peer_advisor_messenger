@@ -6,11 +6,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.chrome.service import Service
 
 waiting_time = 1000
 options = Options()
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 
 driver.get("http://localhost:3000/")
 
