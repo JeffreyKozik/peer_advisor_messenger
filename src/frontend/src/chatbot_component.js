@@ -277,10 +277,6 @@ class MyLexChat extends React.Component {
   }
 
   showResponse(lexResponse) {
-    axios.get("https://desolate-mountain-77457.herokuapp.com/https://cse.google.com/cse/element/v1?rsz=filtered_cse&num=10&hl=en&source=gcsc&gss=.com&cselibv=3e1664f444e6eb06&cx=004305171799132815236:ciq4c8b3yv4&q=testing&safe=off&cse_tok=AJvRUv1K0BYXuxBIUJsAUFWk07BU:1650672845036&sort=&exp=csqr,cc&oq=testing&gs_l=partner-generic.3...0.0.0.11460.0.0.0.0.0.0.0.0..0.0.csems%2Cnrl%3D13...0.0....34.partner-generic..0.0.0.&callback=google.search.cse.api5565")
-    .then(function (response) {
-      console.log(response);
-    })
     var conversationDiv = document.getElementById("conversation");
     var responsePara = document.createElement("P");
     responsePara.className = "lexResponse";
@@ -399,28 +395,63 @@ class MyLexChat extends React.Component {
     conversationDiv.appendChild(spacer);
     conversationDiv.scrollTop = conversationDiv.scrollHeight;
     if(lexResponse.intentName == null){
-      var responsePara2 = document.createElement("P");
+      // var responsePara2 = document.createElement("P");
       let userMessages = document.getElementsByClassName("userRequest");
       let lastUserMessageElement = userMessages[userMessages.length - 1];
       let lastUserMessage = lastUserMessageElement.innerHTML;
-      let searchUrl = "https://case.edu/search-results/?q=" + lastUserMessage;
-      let responseString = "<p>Perhaps you can find answers at this <a href=\"" + searchUrl + "\">link</a>.</p>";
-      let wrapper = document.createElement('div');
-      wrapper.innerHTML = responseString;
-      let responseHTML = wrapper.firstChild;
-      responseHTML.className = "lexResponse";
-      responsePara2.className = "";
-      responsePara2.appendChild(responseHTML);
-      if (lexResponse.dialogState === "ReadyForFulfillment") {
-        responsePara2.appendChild(
-          document.createTextNode("Ready for fulfillment")
-        );
-      }
-      var spacer = document.createElement("div");
-      spacer.className = "convoSpacer";
-      spacer.appendChild(responsePara2);
-      conversationDiv.appendChild(spacer);
-      conversationDiv.scrollTop = conversationDiv.scrollHeight;
+      // let searchUrl = "https://case.edu/search-results/?q=" + lastUserMessage;
+      // let responseString = "<p>Perhaps you can find answers at this <a href=\"" + searchUrl + "\">link</a>.</p>";
+      // let wrapper = document.createElement('div');
+      // wrapper.innerHTML = responseString;
+      // let responseHTML = wrapper.firstChild;
+      // responseHTML.className = "lexResponse";
+      // responsePara2.className = "";
+      // responsePara2.appendChild(responseHTML);
+      // if (lexResponse.dialogState === "ReadyForFulfillment") {
+      //   responsePara2.appendChild(
+      //     document.createTextNode("Ready for fulfillment")
+      //   );
+      // }
+      // var spacer = document.createElement("div");
+      // spacer.className = "convoSpacer";
+      // spacer.appendChild(responsePara2);
+      // conversationDiv.appendChild(spacer);
+      // conversationDiv.scrollTop = conversationDiv.scrollHeight;
+      axios.get("https://desolate-mountain-77457.herokuapp.com/https://cse.google.com/cse/element/v1?rsz=filtered_cse&num=10&hl=en&source=gcsc&gss=.com&cselibv=3e1664f444e6eb06&cx=004305171799132815236:ciq4c8b3yv4&q=" + lastUserMessage + "&safe=off&cse_tok=AJvRUv1K0BYXuxBIUJsAUFWk07BU:1650672845036&sort=&exp=csqr,cc&oq=" + lastUserMessage + "&gs_l=partner-generic.3...0.0.0.11460.0.0.0.0.0.0.0.0..0.0.csems%2Cnrl%3D13...0.0....34.partner-generic..0.0.0.&callback=google.search.cse.api5565")
+      .then(function (response) {
+        let responseData = response.data;
+        let responseDataReplace1 = responseData.replace("/*O_o*/", "");
+        let responseDataReplace2 = responseDataReplace1.replace("google.search.cse.api5565(", "");
+        let responseDataReplace3 = responseDataReplace2.replace(");", "");
+        console.log(responseDataReplace3);
+        let responseDataParsed = JSON.parse(responseDataReplace3);
+        console.log(responseDataParsed);
+        let results = responseDataParsed.results;
+        let responsePara2 = document.createElement("p");
+        responsePara2.className = "lexResponse";
+        let responseList = document.createElement("ol");
+        responsePara2.appendChild(responseList);
+        for(let i = 0; i < results.length && i < 4; i++){
+          let thisResult = results[i];
+          let thisResultTitle = thisResult.title;
+          let thisResultURL = thisResult.url;
+          let responseString = "<li><a href=\"" + thisResultURL + "\">" + thisResultTitle + "</a></li>";
+          let wrapper = document.createElement('div');
+          wrapper.innerHTML = responseString;
+          let responseHTML = wrapper.firstChild;
+          responseList.appendChild(responseHTML);
+        }
+        if (lexResponse.dialogState === "ReadyForFulfillment") {
+          responsePara2.appendChild(
+            document.createTextNode("Ready for fulfillment")
+          );
+        }
+        var spacer = document.createElement("div");
+        spacer.className = "convoSpacer";
+        spacer.appendChild(responsePara2);
+        conversationDiv.appendChild(spacer);
+        conversationDiv.scrollTop = conversationDiv.scrollHeight;
+      })
     }
   }
 
