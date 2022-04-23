@@ -435,7 +435,7 @@ class MyLexChat extends React.Component {
           let thisResult = results[i];
           let thisResultTitle = thisResult.title;
           let thisResultURL = thisResult.url;
-          let responseString = "<li><a href=\"" + thisResultURL + "\">" + thisResultTitle + "</a></li>";
+          let responseString = "<li><a target='_blank', rel='noopener noreferrer' href=\"" + thisResultURL + "\">" + thisResultTitle + "</a></li>";
           let wrapper = document.createElement('div');
           wrapper.innerHTML = responseString;
           let responseHTML = wrapper.firstChild;
