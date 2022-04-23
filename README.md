@@ -10,7 +10,8 @@
 
 # Features
 - Greetings with FAQs that can be added or deleted if necessary
-  - <img width="1440" alt="image" src="https://user-images.githubusercontent.com/75057474/163740092-99a6b828-943b-4c5c-aecd-bc93e948453f.png">
+  - ![image](https://user-images.githubusercontent.com/29404461/164864822-cddcb52a-f706-4b4a-bdb6-60099cb20e57.png)
+  - user can enter "quick question" mode which allows them to ask any question, they can click on FAQ, or they can enter "menu" mode where they follow structured conversation
 - We also have some questions where Lex picks out of a few potential answers to a question and gives one randomly. For example if the student asks “Should I major in CS?” PAM picks from 1 of 3 answers randomly to give the student. Then if the student would like to see all of the answers, they can click “see more” to expand the response and see all three answers that PAM has. 
   - <img width="408" alt="image" src="https://user-images.githubusercontent.com/29404461/163715638-3c523042-2863-4ff0-80ae-c20b78b8d62f.png">
 - PAM supports embedded links or any other type of html such as ordered lists 
@@ -18,7 +19,7 @@
 - PAM also supports "response cards" with pictures and interactive buttons 
   - <img width="200" alt="image" src="https://user-images.githubusercontent.com/29404461/163715682-34e72e66-fde3-4d94-b9b9-507800703daf.png">
 - If a question is asked that PAM doesn't know, PAM provides a link to the search results page on CWRU's website 
-  - <img width="420" alt="image" src="https://user-images.githubusercontent.com/29404461/163718101-4d63495d-b8b1-4ad6-9e27-8b8114574666.png">
+  - ![image](https://user-images.githubusercontent.com/29404461/164865109-a794541d-2f68-4450-8015-13dbbdeec812.png)
 - Currently, this chatbot will be provided as a link on a page on CWRU’s website, but in the future it can be integrated as a popup on the CWRU webpage. 
 - We also created a graph showing the question flow that PAM asks. 
 
