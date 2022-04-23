@@ -6,7 +6,7 @@
   },
   "resource": {
     "name": "WebUiOrderFlowers",
-    "version": "40",
+    "version": "42",
     "intents": [
       {
         "name": "peerAdvisor",
@@ -132,12 +132,16 @@
       },
       {
         "name": "quickquestion",
-        "version": "2",
+        "version": "3",
         "fulfillmentActivity": {
           "type": "ReturnIntent"
         },
         "sampleUtterances": [
-          "quick question"
+          "quick question",
+          "q",
+          "qq",
+          "quick",
+          "queston"
         ],
         "slots": [],
         "conclusionStatement": {
@@ -1065,7 +1069,7 @@
       },
       {
         "name": "otherStudent",
-        "version": "11",
+        "version": "12",
         "fulfillmentActivity": {
           "type": "ReturnIntent"
         },
@@ -1094,7 +1098,7 @@
           "What scholarships can I get",
           "two",
           "student services",
-          "LBGT",
+          "LGBT",
           "LGBTQ",
           "LGBT resources",
           "LGBTQ resources",
@@ -1724,7 +1728,7 @@
       },
       {
         "name": "hello",
-        "version": "10",
+        "version": "11",
         "fulfillmentActivity": {
           "type": "ReturnIntent"
         },
@@ -1745,7 +1749,7 @@
             {
               "groupNumber": 1,
               "contentType": "CustomPayload",
-              "content": "<p> Hello! I am PAM, the Peer Advisor Messenger AI Chatbot. I can find the right resources and answer some of your questions. </p>\n<p> To begin, please select one of the topics below. You may type the topic heading or select the correct number; <br> 1) Course Elgibility and Requirements <br> 2) Adding to you Undergraduate Experience <br> 3) Career Help <br> 4) All Resources <br> 5) Other </p>\n"
+              "content": "<p> Hello! I am PAM, the Peer Advisor Messenger AI Chatbot. I can find the right resources and answer some of your questions. </p>\n<p> To begin, please select one of the topics below. You may type the topic heading or select the correct number; <br> 1) Course Elgibility and Requirements <br> 2) Adding to you Undergraduate Experience <br> 3) Career Help <br> 4) All Resources <br> 5) Other \n<br> Or say \"quick question\"! </p>\n"
             }
           ]
         },
@@ -1963,7 +1967,7 @@
       "messages": [
         {
           "contentType": "PlainText",
-          "content": "Sorry but I didn't understand you, please repeat your question with different key words to prompt a response."
+          "content": "Sorry but I didn't understand you, please repeat your question with different key words to prompt a response. Or check out the links below."
         }
       ],
       "maxAttempts": 2
@@ -1972,7 +1976,7 @@
       "messages": [
         {
           "contentType": "PlainText",
-          "content": "Sorry, it seems that I am unable to help with you question at this time. A different resource you may use is your navigator who can point you in the right direction or help connect you to offices on campus that can help with your questions. You can find the name of your navigator under the advisors tab on SIS or sign up with an undedicated one here - https://case.edu/studentsuccess/navigators/drop-hours"
+          "content": "Sorry, it seems that I am unable to help with you question at this time. A different resource you may use is your navigator who can point you in the right direction or help connect you to offices on campus that can help with your questions. You can find the name of your navigator under the advisors tab on SIS or sign up with an undedicated one here - https://case.edu/studentsuccess/navigators/drop-hours. Or check out the links below."
         }
       ]
     },
