@@ -1,7 +1,7 @@
 # PAM (Peer Advisor Messenger) Chatbot
 
 # Frontend demo: https://youtu.be/1j90CQzi58g
-
+# Lex demo: https://youtu.be/yeWivktPCJI
 
 # Intro & Purpose
 - PAM, which stands for Peer Advisor Messenger is a chatbot that is intended to be used by either prospective Case Western Reserve University students or current Case Western Reserve University students to assist them by answering questions they have about academics, extracurriculars, their career, and other topics. 
