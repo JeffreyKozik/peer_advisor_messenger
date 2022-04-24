@@ -6,7 +6,7 @@
   },
   "resource": {
     "name": "WebUiOrderFlowers",
-    "version": "42",
+    "version": "43",
     "intents": [
       {
         "name": "peerAdvisor",
@@ -1314,7 +1314,7 @@
           ]
         },
         "name": "studyabroad_Lookup",
-        "version": "9",
+        "version": "10",
         "fulfillmentActivity": {
           "type": "ReturnIntent"
         },
@@ -1325,7 +1325,8 @@
           "{Location}",
           "look up programs",
           "look up study abroad",
-          "look up study abroad programs"
+          "look up study abroad programs",
+          "look up available study abroad programs"
         ],
         "slots": [
           {
@@ -1569,7 +1570,7 @@
       },
       {
         "name": "studyAbroad",
-        "version": "23",
+        "version": "24",
         "fulfillmentActivity": {
           "type": "ReturnIntent"
         },
@@ -1594,7 +1595,7 @@
             {
               "groupNumber": 1,
               "contentType": "CustomPayload",
-              "content": "<p>\nI see that you want to learn more about Study Abroad! For all study abroad related enquiries please check the website \n<a href=\"https://engineering.case.edu/outside-classroom/global-opportunities\">here</a>\nor visit their office in Tomlinson! You can prepare your plan \nto combine a study abroad opportunity with your degree \nprogram here at Case Western through help from the \nPeer Advising office <a href=\"https://community.case.edu/csepeeradvisors/home/\">here</a>\nor by discussing it with your academic advisor\n(found under the advisors tab on your SIS). \n</p>\n<p>\nIf you are alread aware of which semester and country you want to study aborad in, you can look up available programs by typing look up available study abroad programs\n</p>\n"
+              "content": "<p>\nI see that you want to learn more about Study Abroad! For all study abroad related enquiries please check the website \n<a href=\"https://engineering.case.edu/outside-classroom/global-opportunities\">here</a>\nor visit their office in Tomlinson! You can prepare your plan \nto combine a study abroad opportunity with your degree \nprogram here at Case Western through help from the \nPeer Advising office <a href=\"https://community.case.edu/csepeeradvisors/home/\">here</a>\nor by discussing it with your academic advisor\n(found under the advisors tab on your SIS). \n</p>\n<p>\nIf you are alread aware of which semester and country you want to study aborad in, you can look up available programs by typing look up study abroad programs\n</p>\n"
             }
           ]
         },
